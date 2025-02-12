@@ -10,7 +10,7 @@
   <h2>signup page</h2>
  
       <form action="saveuser" method="post">
-		First Name:<input type="text" name="firstname"><br><br>
+		First Name:<input type="text" name="firstName"><br><br>
 		
 		Last Name:<input type="text" name="lastname"><br><br>
 		
