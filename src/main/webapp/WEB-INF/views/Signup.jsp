@@ -13,13 +13,11 @@
 		
 		First Name:<input type="text" name="firstName"><br><br>
 		
-		Last Name:<input type="text" name="lastname"><br><br>
+		Last Name:<input type="text" name="lastName"><br><br>
 		
-		E-mail:<input type="text" name="firstname"><br><br>
+		E-mail:<input type="text" name="email"><br><br>
 		
-		Password:<input type="Password" name="Password"><br><br>
-		
-		Confirm Password:<input type="Password" name="confirmpass"><br><br>
+		Password:<input type="Password" name="password"><br><br>
 		
 		Gender:
 			<label for="male">
@@ -32,7 +30,7 @@
            		<input type="radio" id="other" name="gender" value="other"> other
         	</label><br><br>
         
-		Contact No.: <input type="text" name="number"><br><br>
+		Contact No.: <input type="text" name="contactNum"><br><br>
 		
 		<label for="role">Role :</label>
             <select id="role" name="role" required>
@@ -40,17 +38,6 @@
                 <option value="1">Admin</option>
                 <option value="2">Buyer</option>
                 <option value="3">Seller</option>
-            </select><br><br>
-		
-		<!-- Created At (Auto-generated, can be handled via backend) -->
-        <label for="createdAt">Created At</label>
-        <input type="datetime-local" id="createdAt" name="createdAt" ><br><br>
-
-        <!-- Status Dropdown -->
-        <label for="status">Status :</label>
-            <select id="status" name="status" required>
-                <option value="1">Active</option>
-                <option value="2">Disabled</option>
             </select><br><br>
 		
 	

@@ -19,8 +19,7 @@ public class UserEntity {
 	private String email;
 	private String password;
 	private String contactNum;
-	private String city;
-	private String bornYear;
+//	private String city;
 	private String gender;
 	private String role;// admin, user , seller , buyer
 
@@ -72,21 +71,13 @@ public class UserEntity {
 		this.contactNum = contactNum;
 	}
 
-	public String getCity() {
-		return city;
-	}
-
-	public void setCity(String city) {
-		this.city = city;
-	}
-
-	public String getBornYear() {
-		return bornYear;
-	}
-
-	public void setBornYear(String bornYear) {
-		this.bornYear = bornYear;
-	}
+//	public String getCity() {
+//		return city;
+//	}
+//
+//	public void setCity(String city) {
+//		this.city = city;
+//	}
 
 	public String getGender() {
 		return gender;
