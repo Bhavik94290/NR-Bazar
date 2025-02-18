@@ -12,14 +12,21 @@ import jakarta.persistence.Table;
 public class StateEntity {
 	@Id //primary key 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer userID;//primary key
-	private String state;
+	private Integer stateID;//primary key
+	private String stateName;
+	public Integer getStateID() {
+		return stateID;
+	}
+	public void setStateID(Integer stateID) {
+		this.stateID = stateID;
+	}
+	public String getStateName() {
+		return stateName;
+	}
+	public void setStateName(String stateName) {
+		this.stateName = stateName;
+	}
 	
-	public String getState() {
-		return state;
-	}
-	public void setState(String state) {
-		this.state = state;
-	}
+	
 	
 }

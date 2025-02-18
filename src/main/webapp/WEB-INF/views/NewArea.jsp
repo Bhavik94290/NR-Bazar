@@ -4,17 +4,19 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>new state</title>
+<title>New Area</title>
 </head>
 <body>
-
-   <h2>State</h2>
+	
+	<h2>New Area</h2>
+	<form action="savearea" method="post">
    
-   <form action="savestate" method="post">
-   
-     <input type="text" name="stateName"><br><br>
+     Area: <input type="text" name="areaName"><br><br>
+     
+     City Id: <input type="text" name="cityId"><br><br>
    
      <input type="Submit" value="Submit">
    </form>
+
 </body>
 </html>

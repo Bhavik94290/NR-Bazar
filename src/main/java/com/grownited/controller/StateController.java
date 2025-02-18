@@ -30,7 +30,7 @@ public class StateController {
     @PostMapping("savestate")
     public String saveState(StateEntity stateEntity) {
         //TODO: process POST request
-    	System.out.println(stateEntity.getState());
+    	System.out.println(stateEntity.getStateName());
     	repoState.save(stateEntity);
         return "NewState";
     }
