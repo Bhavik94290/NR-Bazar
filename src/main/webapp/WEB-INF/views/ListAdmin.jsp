@@ -12,6 +12,14 @@
 	<h2>List Admin</h2>
 
 	<table border="1">
+	 <tr>
+	     <th>Name</th>
+	     <th>Name</th>
+
+	     <th>Name</th>
+	 </tr>
+	
+	
 		<c:forEach items="${adminList}" var="m">
 
 			<tr>
