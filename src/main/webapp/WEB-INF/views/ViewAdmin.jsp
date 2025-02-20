@@ -4,10 +4,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>View Member</title>
+<title>View admin</title>
 </head>
 <body>
-       <h2>View Member</h2>
+       <h2>View admin</h2>
        
        MemberName : ${admin.adminName }<br>
        Age :  ${admin.age }<br>
