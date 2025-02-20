@@ -14,18 +14,19 @@
 	<table border="1">
 	 <tr>
 	     <th>Name</th>
-	     <th>Name</th>
-
-	     <th>Name</th>
+	     <th>age</th>
+	     <th>profile photo</th>
+	     <th>Action</th>
 	 </tr>
 	
 	
-		<c:forEach items="${adminList}" var="m">
+		<c:forEach items="${adminList}" var="a">
 
 			<tr>
-				<td>${m.adminName }</td>
-				<td>${m.age}</td>
-				<td>${m.profilePhoto }</td>
+				<td>${a.adminName }</td>
+				<td>${a.age}</td>
+				<td>${a.profilePhoto }</td>
+				<td><a href="viewadmin?adminId=${a.adminId}">View</a> | <a href="deleteadmin?adminId=${a.adminId}">Delete</a> | Edit </td>
 			</tr>
 		</c:forEach>
 	</table>

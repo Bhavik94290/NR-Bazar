@@ -1,6 +1,7 @@
 package com.grownited.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -40,5 +41,33 @@ public class AdminController {
 						//dataName , dataValue 
 		
 		return "ListAdmin";
+		
+		
 	}
+	
+	@GetMapping("viewadmin")
+	public String viewAdmin(Integer adminId, Model model) {
+		// ?
+		System.out.println("id ===> " + adminId);
+		Optional<AdminEntity> op = repositoryAdmin.findById(adminId);
+		if (op.isEmpty()) {
+			// not found
+		} else {
+			// data found
+			AdminEntity admin = op.get();
+			// send data to jsp ->
+			model.addAttribute("admin", admin);
+
+		}
+
+		return "ViewAdmin";
+	}
+	
+	@GetMapping("deleteadmin")
+	public String deleteadmin(Integer adminId) {
+		repositoryAdmin.deleteById(adminId);//delete from members where memberID = :memberId
+		return "redirect:/listadmin";
+	}
+	
+	
 }

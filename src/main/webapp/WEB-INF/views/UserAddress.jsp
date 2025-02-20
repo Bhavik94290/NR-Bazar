@@ -24,7 +24,7 @@
 		
 		
 	
-		<input type="submit" value="save addrerss"> <br><br><br><br>
+		<input type="submit" value="save address"> <br><br><br><br>
 		
 	</form>
 

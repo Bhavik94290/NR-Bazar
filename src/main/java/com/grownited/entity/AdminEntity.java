@@ -16,6 +16,7 @@ public class AdminEntity {
 	private String adminName;
 	private Integer age;
 	private String profilePhoto;
+	
 	public Integer getAdminId() {
 		return adminId;
 	}

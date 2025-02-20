@@ -1,6 +1,7 @@
 package com.grownited.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -45,21 +46,18 @@ public class sessionController {
 	
 	@PostMapping("saveuser")
 	public String saveUser(UserEntity userEntity) {
-		System.out.println(userEntity.getFirstName());
-		
-		userEntity.setRole("USER");
-		userRepo.save(userEntity);
-		
+			
 	String encryptePassword = encoder.encode(userEntity.getPassword());
 	userEntity.setPassword(encryptePassword);
 	
-	
+	userEntity.setRole("USER");
+	userRepo.save(userEntity);
 		
-		userRepo.save(userEntity);	
-		// send mail
-				serviceMail.sendWelcomeMail(userEntity.getEmail(), userEntity.getFirstName());
-				
-				return "redirect:/listuser";// jsp
+	
+	// send mail
+	serviceMail.sendWelcomeMail(userEntity.getEmail(), userEntity.getFirstName());
+	return "Login";// jsp
+	
 	}
 	
 	@GetMapping("listuser")
@@ -88,6 +86,29 @@ public class sessionController {
 		public String updatePassword() {
 			return "Login";
 		}
+		
+		
+		
+		@PostMapping("authenticate")
+		public String authenticate(String email, String password,Model model) {// sakira@yopmail.com sakira
+			System.out.println(email);
+			System.out.println(password);
+
+			// users -> email,password
+			Optional<UserEntity> op = userRepo.findByEmail(email);
+			// select * from users where email = :email and password = :password
+			if (op.isPresent()) {
+				// true
+				// email
+				UserEntity dbUser = op.get();
+				if (encoder.matches(password, dbUser.getPassword())) {
+					return "redirect:/home";
+				}
+			}
+			model.addAttribute("error","Invalid Credentials");
+			return "Login";
+		}
+
 	
 }
 
