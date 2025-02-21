@@ -15,7 +15,6 @@ public class ECommerceApplication {
 	
 	@Bean
 	PasswordEncoder encoder() {
-		
 		return new BCryptPasswordEncoder(6);
 	}
 	

@@ -10,9 +10,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.grownited.entity.SellerEntity;
 import com.grownited.entity.UserEntity;
+import com.grownited.repository.SellerRepository;
 import com.grownited.repository.UserRepository;
 import com.grownited.service.Mailservice;
+import org.springframework.web.bind.annotation.RequestParam;
+
 @Controller
 public class sessionController {
 	
@@ -21,6 +25,9 @@ public class sessionController {
 	
 	@Autowired
 	UserRepository userRepo;
+	
+	@Autowired
+	SellerRepository sellerRepo;
 	
 	@Autowired
 	PasswordEncoder encoder;
@@ -52,7 +59,6 @@ public class sessionController {
 	
 	userEntity.setRole("USER");
 	userRepo.save(userEntity);
-		
 	
 	// send mail
 	serviceMail.sendWelcomeMail(userEntity.getEmail(), userEntity.getFirstName());
@@ -69,6 +75,73 @@ public class sessionController {
 		
 		return "ListUser";
 	}
+	
+	@GetMapping("viewuser")
+	public String viewUser(Integer userId,Model model) {
+		
+		Optional<UserEntity> op = userRepo.findById(userId);
+		
+		if (op.isEmpty()) {
+			// data not found
+		}
+		else {
+			UserEntity user = op.get();
+			// send data to jsp
+			model.addAttribute("user", user);
+		}
+		
+		return "ViewUser";
+	}
+	
+	@GetMapping("deleteuser")
+	public String deleteUser(Integer userId) {
+	userRepo.deleteById(userId);//delete from members where memberID = :memberId
+		return "redirect:/listuser";
+	}
+	
+	@GetMapping("newseller")
+	public String newSeller() {
+		return "NewSeller";
+	}
+	
+	@PostMapping("saveseller")
+	public String saveSeller(SellerEntity sellerEntity) {
+		sellerRepo.save(sellerEntity);
+		
+		return "Login";
+	}
+	@GetMapping("listseller")
+	public String listSeller(Model model) {
+		List<SellerEntity> sellerList = 	sellerRepo.findAll();
+		model.addAttribute("sellerlist", sellerList);
+		return "redirect:/listseller";
+	}
+	
+	@GetMapping("viewseller")
+	public String viewSeller(Integer sellerId,Model model) {
+		
+		Optional<SellerEntity> op = sellerRepo.findById(sellerId);
+		
+		if (op.isEmpty()) {
+			// data not found
+		}
+		else {
+			SellerEntity seller = op.get();
+			// send data to jsp
+			model.addAttribute("seller", seller);
+		}
+		
+		return "ViewSeller";
+	}
+	
+	@GetMapping("deleteseller")
+	public String deleteSeller(Integer sellerId) {
+	sellerRepo.deleteById(sellerId);//delete from members where memberID = :memberId
+		return "redirect:/listseller";
+	}
+	
+	
+	
 	
 	@GetMapping("forgetpassword")
 	public String forgetPass() {
@@ -108,6 +181,7 @@ public class sessionController {
 			model.addAttribute("error","Invalid Credentials");
 			return "Login";
 		}
+
 
 	
 }
