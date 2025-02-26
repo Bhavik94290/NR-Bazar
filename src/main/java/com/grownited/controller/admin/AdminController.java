@@ -69,5 +69,11 @@ public class AdminController {
 		return "redirect:/listadmin";
 	}
 	
+	@GetMapping("admindashboard")
+	public String adminDashboard() {
+		return "AdminDashboard";
+	}
+	
+	
 	
 }
