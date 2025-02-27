@@ -199,7 +199,11 @@ public class sessionController {
 			return "Login";
 		}
 
-
+		@GetMapping("logout")
+		public String logout(HttpSession session) {
+			session.invalidate();
+			return "redirect:/Login";// login url
+		}
 	
 }
 

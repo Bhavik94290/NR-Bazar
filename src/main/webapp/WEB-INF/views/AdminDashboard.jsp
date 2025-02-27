@@ -35,14 +35,14 @@
 <body>
   <jsp:include page="AdminHeader.jsp"></jsp:include>
   
-  <jsp:include page="AdminSidebar.jsp"></jsp:include>
-<h2>Admin Dashboard</h2>
+ <jsp:include page="AdminSidebar.jsp"></jsp:include>
 
-Welcome , ${user.firstName}
-<br>
-<a href="logout">Logout</a> 
-<br>
-<a href="newstate">Add State</a>
+<jsp:include page="AdminBody.jsp"></jsp:include>
+
+
+<jsp:include page="AdminFooter.jsp"></jsp:include>
+
+<jsp:include page="AdminJs.jsp"></jsp:include>
  
 </body>
 </html>
