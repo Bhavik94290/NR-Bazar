@@ -30,7 +30,7 @@
   <jsp:include page="AdminCss.jsp"></jsp:include>
 
 
-<title>Admin | New State</title>
+<title>Admin | New City</title>
 
 <jsp:include page="AdminCss.jsp"></jsp:include>
 
@@ -45,11 +45,11 @@
 	<main id="main" class="main" style="height: calc(100vh - 120px);" >  <!--  -->
 
 		<div class="pagetitle">
-			<h1>New State</h1>
+			<h1>New City</h1>
 			<nav>
 				<ol class="breadcrumb">
 					<li class="breadcrumb-item"><a href="admindashboard">Home</a></li>
-					<li class="breadcrumb-item active">New State</li>
+					<li class="breadcrumb-item active">New City</li>
 				</ol>
 			</nav>
 		</div>
@@ -60,15 +60,26 @@
 
 				<div class="card col-12 ">
 		            <div class="card-body ">
-		              <h5 class="card-title">Add New State</h5>
+		              <h5 class="card-title">Add New City</h5>
 		
 		              <!-- Vertical Form -->
-		              <form class="row g-3" action="savestate" method="post">
+		              <form class="row g-3" action="savecity" method="post">
 		                <div class="col-12">
-		                  <label for="stateName" class="form-label">State Name</label>
+		                  <label for="cityName" class="form-label">City Name</label>
 		                  <input type="text" class="form-control" id="cityName" name="cityName">
 		                </div>
-		               
+		                <div class="col-12">
+			                <label for="stateId" class="form-label">State</label>
+							<select class="form-control" id="stateId" name="stateId">
+								<option value="" disabled selected>Select State</option>
+								
+									<c:forEach items="${allState}" var="s">
+									
+										<option value="${s.stateId}">${s.stateName}</option>
+										
+									</c:forEach>
+							
+							</select>
 						</div>
 		                <div class="text-center">
 		                  <input type="submit" class="btn btn-primary" value="Submit">

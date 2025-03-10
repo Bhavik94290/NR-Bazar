@@ -30,11 +30,11 @@
   <jsp:include page="AdminCss.jsp"></jsp:include>
 
 
-<title>Admin | New State</title>
+
+
+<title>Admin | City Details</title>
 
 <jsp:include page="AdminCss.jsp"></jsp:include>
-
-<link href="https://cdn.datatables.net/2.2.2/css/dataTables.bootstrap5.min.css" rel="stylesheet"/>
 
 </head>
 <body>
@@ -42,45 +42,53 @@
 
 	<jsp:include page="AdminSidebar.jsp"></jsp:include>
 
-	<main id="main" class="main" style="height: calc(100vh - 120px);" >  <!--  -->
+	<main id="main" class="main" style="height: calc(100vh - 120px);">
 
 		<div class="pagetitle">
-			<h1>New State</h1>
+			<h1>City Details</h1>
 			<nav>
 				<ol class="breadcrumb">
 					<li class="breadcrumb-item"><a href="admindashboard">Home</a></li>
-					<li class="breadcrumb-item active">New State</li>
+					<li class="breadcrumb-item active">City Details</li>
 				</ol>
 			</nav>
 		</div>
 		<!-- End Page Title -->
 
-		<section class="section dashboard ">
-			<div class="row" >
-
-				<div class="card col-12 ">
-		            <div class="card-body ">
-		              <h5 class="card-title">Add New State</h5>
+		<section class="section profile">
+		      <div class="row">
+		        
 		
-		              <!-- Vertical Form -->
-		              <form class="row g-3" action="savestate" method="post">
-		                <div class="col-12">
-		                  <label for="stateName" class="form-label">State Name</label>
-		                  <input type="text" class="form-control" id="cityName" name="cityName">
+		        <div class="col-xl-6">
+		
+		          <div class="card">
+		            <div class="card-body pt-3">
+		            
+		              <div class="tab-content pt-2">
+		
+		                <div class="tab-pane fade show active profile-overview" id="profile-overview" role="tabpanel">
+		
+		                  <h5 class="card-title">City Details</h5>
+		
+		                  <div class="row">
+		                    <div class="col-lg-3 col-md-4 label ">City</div>
+		                    <div class="col-lg-9 col-md-8">${city.cityName}</div>
+		                  </div>
+		                  
+		                  <div class="row">
+		                    <div class="col-lg-3 col-md-4 label ">State</div>
+		                    <div class="col-lg-9 col-md-8">${city.stateId}</div>
+		                  </div>
+		
+		                  
 		                </div>
-		               
-						</div>
-		                <div class="text-center">
-		                  <input type="submit" class="btn btn-primary" value="Submit">
-		                  <input type="reset" class="btn btn-secondary" value="Reset">
-		                </div>
-		              </form><!-- Vertical Form -->
 		
 		            </div>
 		          </div>
-
-			</div>
-		</section>
+		
+		        </div>
+		      </div>
+    </section>
 
 	</main>
 	<!-- main content end  -->

@@ -53,6 +53,43 @@
 				</a></li>
 			</ul></li>
 		<!-- End Icons Nav -->
+		
+		<li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#city-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-geo-alt"></i><span>City</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="city-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="newcity">
+              <i class="bi bi-circle"></i><span>Add City</span>
+            </a>
+          </li>
+          <li>
+            <a href="listcity">
+              <i class="bi bi-circle"></i><span>List of Cities</span>
+            </a>
+          </li>
+        </ul>
+      </li><!-- End Appointments Nav -->
+      
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#state-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-globe"></i><span>State</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="state-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="newstate">
+              <i class="bi bi-circle"></i><span>Add State</span>
+            </a>
+          </li>
+          <li>
+            <a href="liststate">
+              <i class="bi bi-circle"></i><span>List of States</span>
+            </a>
+          </li>
+        </ul>
+      </li><!-- End Appointments Nav -->
+		
 
 		<li class="nav-heading">Manage</li>
 

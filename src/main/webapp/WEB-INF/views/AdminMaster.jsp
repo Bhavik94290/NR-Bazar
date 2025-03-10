@@ -17,21 +17,21 @@
 
 	<jsp:include page="AdminSidebar.jsp"></jsp:include>
 
-	<main id="main" class="main">
+	<main id="main" class="main"><!-- height: calc(100vh - 120px); -->
 
 		<div class="pagetitle">
 			<h1>Dashboard</h1>
 			<nav>
 				<ol class="breadcrumb">
-					<li class="breadcrumb-item"><a href="index.html">Home</a></li>
+					<li class="breadcrumb-item"><a href="admindashboard">Home</a></li>
 					<li class="breadcrumb-item active">Dashboard</li>
 				</ol>
 			</nav>
 		</div>
 		<!-- End Page Title -->
 
-		<section class="section dashboard">
-			<div class="row" style="min-height: 500px;">
+		<section class="section dashboard" style="height: 100vh">
+			<div class="row" style="">
 
 				<!-- Left side columns -->
 				<div class="col-lg-12">
@@ -73,10 +73,6 @@
 	<jsp:include page="AdminFooter.jsp"></jsp:include>
 
 	<jsp:include page="AdminJs.jsp"></jsp:include>
+	
 </body>
 </html>
-
-
-
-
-

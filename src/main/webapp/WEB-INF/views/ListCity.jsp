@@ -30,7 +30,9 @@
   <jsp:include page="AdminCss.jsp"></jsp:include>
 
 
-<title>Admin | New State</title>
+
+
+<title>Admin | List of Cities</title>
 
 <jsp:include page="AdminCss.jsp"></jsp:include>
 
@@ -42,42 +44,69 @@
 
 	<jsp:include page="AdminSidebar.jsp"></jsp:include>
 
-	<main id="main" class="main" style="height: calc(100vh - 120px);" >  <!--  -->
+	<main id="main" class="main" > <!-- style="height: calc(100vh - 120px);" -->
 
 		<div class="pagetitle">
-			<h1>New State</h1>
+			<h1>List of Cities</h1>
 			<nav>
 				<ol class="breadcrumb">
 					<li class="breadcrumb-item"><a href="admindashboard">Home</a></li>
-					<li class="breadcrumb-item active">New State</li>
+					<li class="breadcrumb-item active">List of Cities</li>
 				</ol>
 			</nav>
 		</div>
 		<!-- End Page Title -->
 
-		<section class="section dashboard ">
-			<div class="row" >
+		<section class="section dashboard">
+			<div class="row" style="min-height:500px;">
 
-				<div class="card col-12 ">
-		            <div class="card-body ">
-		              <h5 class="card-title">Add New State</h5>
-		
-		              <!-- Vertical Form -->
-		              <form class="row g-3" action="savestate" method="post">
-		                <div class="col-12">
-		                  <label for="stateName" class="form-label">State Name</label>
-		                  <input type="text" class="form-control" id="cityName" name="cityName">
-		                </div>
-		               
+				<!-- Left side columns -->
+				<div class="col-lg-12">
+					<div class="row" >
+						<!-- City -->
+						<div class="col-12">
+							<div class="card">
+
+							 
+								<div class="card-body">
+									<h5 class="card-title">
+										Cities <span>/all</span>
+									</h5>
+
+										 <table class="table datatable datatable-table table-hover" id="myTable">
+											<thead>
+												<tr>
+													<th>City Name</th>
+													<th>State Name</th>
+													<th>Action</th>
+												</tr>
+											</thead>
+											<tbody>
+											
+												<c:forEach items="${allCity}" var="c">
+												
+													<tr>
+														<td>${c.cityName}</td>
+														<td>${c.stateName}</td>
+														<td><a href="viewcity?cityId=${c.cityId}">View</a> | <a href="deletecity?cityId=${c.cityId}">Delete</a> | <a href="#">Edit</a></td>
+													</tr>
+												</c:forEach>
+													
+											</tbody>	
+										</table>
+											
+								</div>
+
+							</div>
 						</div>
-		                <div class="text-center">
-		                  <input type="submit" class="btn btn-primary" value="Submit">
-		                  <input type="reset" class="btn btn-secondary" value="Reset">
-		                </div>
-		              </form><!-- Vertical Form -->
-		
-		            </div>
-		          </div>
+						<!-- End City -->
+
+					</div>
+				</div>
+				<!-- End Left side columns -->
+
+				<!-- Right side columns -->
+				<!-- End Right side columns -->
 
 			</div>
 		</section>
@@ -90,6 +119,21 @@
 
 	<jsp:include page="AdminJs.jsp"></jsp:include>
 	
+	
+	
+	<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+	
+	<script src="https://cdn.datatables.net/2.2.2/js/dataTables.min.js"></script>
+	
+	<script src="https://cdn.datatables.net/2.2.2/js/dataTables.bootstrap5.min.js"></script>
+	
+	
+	<script type="text/javascript">
+
+	$( document ).ready(function() {
+		let table = new DataTable('#myTable');
+	});
+	</script>
 	
 	
 </body>

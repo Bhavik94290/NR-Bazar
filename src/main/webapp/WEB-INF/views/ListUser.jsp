@@ -7,8 +7,11 @@
 <head>
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
+	
 <title>Admin | List User</title>
+
+<jsp:include page="AdminCss.jsp"></jsp:include>
+
 
 <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
@@ -31,7 +34,6 @@
 
 
 <link  href="https://cdn.datatables.net/2.2.2/css/dataTables.bootstrap5.min.css" rel="stylesheet"/>
-<jsp:include page="AdminCss.jsp"></jsp:include>
 
 </head>
 <body>
@@ -81,9 +83,9 @@
 												</tr>
 											</thead>
 											
-												<c:forEach items="${userList}" var="u">
+												
 										         <tbody>
-										              
+										              <c:forEach items="${userList}" var="u">
 										              <tr>
 														<td>${u.firstName }</td>
 														<td>${u.lastName}</td>
@@ -92,9 +94,9 @@
 														<td>${u.gender }</td>
 														<td><a href="viewuser?userId=${u.userId}">View</a> | <a href="deleteuser?userId=${u.userId}">Delete</a> |<a href="#">Edit</a></td>
 													</tr>
-										              
+										            </c:forEach>  
 										         </tbody>
-																									</c:forEach>
+																									
 	                                      </table>
 
 

@@ -6,27 +6,28 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
-
-@Entity // create table
-@Table(name = "state") // table name set
+@Entity
+@Table(name = "state")
 public class StateEntity {
-	@Id //primary key 
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer stateID;//primary key
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY) // 1 2 3 4 5
+	private Integer stateId;
 	private String stateName;
-	public Integer getStateID() {
-		return stateID;
+
+	public Integer getStateId() {
+		return stateId;
 	}
-	public void setStateID(Integer stateID) {
-		this.stateID = stateID;
+
+	public void setStateId(Integer stateId) {
+		this.stateId = stateId;
 	}
+
 	public String getStateName() {
 		return stateName;
 	}
+
 	public void setStateName(String stateName) {
 		this.stateName = stateName;
 	}
-	
-	
-	
+
 }
