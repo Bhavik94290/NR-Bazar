@@ -19,9 +19,19 @@ public class UserEntity {
 	private String email;
 	private String password;
 	private String contactNum;
-//	private String city;
 	private String gender;
 	private String role;// admin, user , seller , buyer
+	private String otp; 
+	
+	
+
+	public String getOtp() {
+		return otp;
+	}
+
+	public void setOtp(String otp) {
+		this.otp = otp;
+	}
 
 	public Integer getUserId() {
 		return userId;
@@ -70,14 +80,6 @@ public class UserEntity {
 	public void setContactNum(String contactNum) {
 		this.contactNum = contactNum;
 	}
-
-//	public String getCity() {
-//		return city;
-//	}
-//
-//	public void setCity(String city) {
-//		this.city = city;
-//	}
 
 	public String getGender() {
 		return gender;
