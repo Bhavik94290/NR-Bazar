@@ -32,7 +32,7 @@
 
 
 
-<title>Admin | City Details</title>
+<title>Admin | State Details</title>
 
 <jsp:include page="AdminCss.jsp"></jsp:include>
 
@@ -45,11 +45,11 @@
 	<main id="main" class="main" style="height: calc(100vh - 120px);">
 
 		<div class="pagetitle">
-			<h1>City Details</h1>
+			<h1>State Details</h1>
 			<nav>
 				<ol class="breadcrumb">
 					<li class="breadcrumb-item"><a href="admindashboard">Home</a></li>
-					<li class="breadcrumb-item active">City Details</li>
+					<li class="breadcrumb-item active">State Details</li>
 				</ol>
 			</nav>
 		</div>
@@ -68,19 +68,13 @@
 		
 		                <div class="tab-pane fade show active profile-overview" id="profile-overview" role="tabpanel">
 		
-		                  <h5 class="card-title">City Details</h5>
+		                  <h5 class="card-title">State Details</h5>
 		
-		                  <div class="row">
-		                    <div class="col-lg-3 col-md-4 label ">City</div>
-		                    <div class="col-lg-9 col-md-8">${city[0][1]}</div>
-		                  </div>
-		                  
 		                  <div class="row">
 		                    <div class="col-lg-3 col-md-4 label ">State</div>
-		                    <div class="col-lg-9 col-md-8">${city[0][3]}</div>
+		                    <div class="col-lg-9 col-md-8">${state.stateName}</div>
 		                  </div>
 		
-		                  
 		                </div>
 		
 		            </div>

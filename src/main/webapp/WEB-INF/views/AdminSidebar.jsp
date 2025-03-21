@@ -12,7 +12,7 @@
 
 	<ul class="sidebar-nav" id="sidebar-nav">
 
-		<li class="nav-item"><a class="nav-link " href="index.html">
+		<li class="nav-item"><a class="nav-link " href="admindashboard">
 				<i class="bi bi-grid"></i> <span>Dashboard</span>
 		</a></li>
 		<!-- End Dashboard Nav -->
@@ -99,7 +99,7 @@
 		<!-- End Profile Page Nav -->
 
 		<li class="nav-item"><a class="nav-link collapsed"
-			href="listhome"> <i class="bi bi-building-fill"></i> <span>Home</span>
+			href="home"> <i class="bi bi-building-fill"></i> <span>Home</span>
 		</a></li>
 		<!-- End Profile Page Nav -->
 

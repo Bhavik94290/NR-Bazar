@@ -21,8 +21,9 @@ public class LoginCheckFilter implements Filter {
 	ArrayList<String> publicURL = new ArrayList<>();
 
 	public LoginCheckFilter() {
-		publicURL.add("/login");
 		publicURL.add("/signup");
+		publicURL.add("/");
+		publicURL.add("/login");
 		publicURL.add("/saveuser");
 		publicURL.add("/forgetpassword");
 		publicURL.add("/sendotp");

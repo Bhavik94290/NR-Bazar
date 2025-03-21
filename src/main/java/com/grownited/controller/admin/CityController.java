@@ -42,26 +42,18 @@ public class CityController {
 	@GetMapping("listcity")
 	public String listCity(Model model) {
 //		List<CityDto> allCity = repositoryCity.getAll();
-
-		model.addAttribute("allCity", repositoryCity.getAll());
+		List<Object[]> allCity = repositoryCity.getAll();
+		
+		model.addAttribute("allCity", allCity);
 		return "ListCity";
 	}	
 	
 	@GetMapping("viewcity")
 	public String viewCity(Integer cityId, Model model) {
 		
-		Optional<CityEntity> op = repositoryCity.findById(cityId);
+		Object[] city = repositoryCity.getByCityId(cityId);
 		
-		if (op.isEmpty()) {
-			// data not found
-		}
-		else {
-			// data found
-			CityEntity city =  op.get();
-			
-			model.addAttribute("city", city);
-		}
-		
+		model.addAttribute("city", city);
 		return "ViewCity";
 	}
 	
