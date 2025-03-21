@@ -30,9 +30,7 @@
   <jsp:include page="AdminCss.jsp"></jsp:include>
 
 
-
-
-<title>Admin | List of Cities</title>
+<title>Admin | Update City</title>
 
 <jsp:include page="AdminCss.jsp"></jsp:include>
 
@@ -44,71 +42,60 @@
 
 	<jsp:include page="AdminSidebar.jsp"></jsp:include>
 
-	<main id="main" class="main" > <!-- style="height: calc(100vh - 120px);" -->
+	<main id="main" class="main" style="height: calc(100vh - 120px);" >  <!--  -->
 
 		<div class="pagetitle">
-			<h1>List of Cities</h1>
+			<h1>Update City</h1>
 			<nav>
 				<ol class="breadcrumb">
 					<li class="breadcrumb-item"><a href="admindashboard">Home</a></li>
-					<li class="breadcrumb-item active">List of Cities</li>
+					<li class="breadcrumb-item active">Update City</li>
 				</ol>
 			</nav>
 		</div>
 		<!-- End Page Title -->
 
-		<section class="section dashboard">
-			<div class="row" style="min-height:500px;">
+		<section class="section dashboard ">
+			<div class="row" >
 
-				<!-- Left side columns -->
-				<div class="col-lg-12">
-					<div class="row" >
-						<!-- City -->
-						<div class="col-12">
-							<div class="card">
-
-							 
-								<div class="card-body">
-									<h5 class="card-title">
-										Cities <span>/all</span>
-									</h5>
-
-										 <table class="table datatable datatable-table table-hover" id="myTable">
-											<thead>
-												<tr>
-													<th>City Name</th>
-													<th>State Name</th>
-													<th>Action</th>
-												</tr>
-											</thead>
-											<tbody>
-											
-												<c:forEach items="${allCity}" var="c">
-												
-													<tr>
-														<td>${c[1]}</td>
-														<td>${c[3]}</td>
-														<td><a href="viewcity?cityId=${c[0]}">View</a> | 
-														<a href="deletecity?cityId=${c[0]}">Delete</a> | 
-														<a href="editcity?cityId=${c[0]}">Edit</a></td>
-													</tr>
-												</c:forEach>
-													
-											</tbody>	
-										</table>
-											
-								</div>
-
-							</div>
+				<div class="card col-12 ">
+		            <div class="card-body ">
+		              <h5 class="card-title">Update City</h5>
+		
+		              <!-- Vertical Form -->
+		              <form class="row g-3" action="updatecity" method="post">
+		                <div class="col-12">
+		                  <label for="cityName" class="form-label">City Name</label>
+		                  <input type="text" class="form-control" id="cityName" name="cityName" value="${city.cityName }">
+		                </div>
+		               
+		             <div class="col-12">
+			                <label for="stateId" class="form-label">State</label>
+							<select class="form-control" id="stateId" name="stateId">
+								<option value="" disabled selected>Select State</option>
+								
+									<c:forEach items="${editState}" var="s">
+									
+										<option value="${s.stateId}">${s.stateName}</option>
+										
+									</c:forEach>
+							
+							</select>
 						</div>
-						<!-- End City -->
-
-					</div>
-				</div>
-				<!-- End Left side columns -->
-
-				<!-- Right side columns -->
-				<!-- End Right side columns -->
+		               
+						</div>
+		                
+		                
+		                <input type="hidden" name="cityId" value="${city.cityId }">
+		                
+		                <div class="text-center">
+		                  <input type="submit" class="btn btn-primary" value="Submit">
+		                  <input type="reset" class="btn btn-secondary" value="Reset">
+		                </div> 
+		              </form><!-- Vertical Form -->
+		
+		            </div>
+		          </div>
 
 			</div>
 		</section>
@@ -121,21 +108,6 @@
 
 	<jsp:include page="AdminJs.jsp"></jsp:include>
 	
-	
-	
-	<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-	
-	<script src="https://cdn.datatables.net/2.2.2/js/dataTables.min.js"></script>
-	
-	<script src="https://cdn.datatables.net/2.2.2/js/dataTables.bootstrap5.min.js"></script>
-	
-	
-	<script type="text/javascript">
-
-	$( document ).ready(function() {
-		let table = new DataTable('#myTable');
-	});
-	</script>
 	
 	
 </body>

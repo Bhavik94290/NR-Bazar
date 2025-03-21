@@ -86,7 +86,9 @@
 												
 													<tr>
 														<td>${s.stateName}</td>
-														<td><a href="viewstate?stateId=${s.stateId}">View</a> | <a href="deletestate?stateId=${s.stateId}">Delete</a> | <a href="editstate?stateId=${s.stateId}">Edit</a></td>
+														<td><a href="viewstate?stateId=${s.stateId}">View</a> 
+														| <a href="deletestate?stateId=${s.stateId}">Delete</a> 
+														| <a href="editstate?stateId=${s.stateId}">Edit</a></td>
 													</tr>
 												</c:forEach>
 													

@@ -64,5 +64,47 @@ public class CityController {
 		
 		return "redirect:/listcity";
 	}
+	
+	@GetMapping("editcity")
+	public String editCity(Integer cityId, Model model) {
+		
+		List<StateEntity> editState = repositoryState.findAll();
+		
+		model.addAttribute("editState", editState);
+		
+		Optional<CityEntity> op = repositoryCity.findById(cityId);
+		
+		if (op.isEmpty()) {
+			return "redirect:/listcity";
+		}
+		else {
+			CityEntity city = op.get();
+			
+			model.addAttribute("city", city);
+			return "EditCity";
+		}
+		
+	}
+	
+	
+	@PostMapping("updatecity")
+	public String updateCity(CityEntity cityEntity) {
+		
+		Optional<CityEntity> op = repositoryCity.findById(cityEntity.getCityId());
+		
+		if (op.isPresent()) {
+			
+			CityEntity dbCity = op.get();
+			
+			dbCity.setCityName(cityEntity.getCityName());
+			dbCity.setCityId(cityEntity.getCityId());
+			
+			repositoryCity.save(dbCity);
+			
+			
+		}
+		return "redirect:/listcity";
+	}
+	
 
 }
