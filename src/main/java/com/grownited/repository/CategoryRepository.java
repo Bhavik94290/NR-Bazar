@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.grownited.entity.CategoryEntity;
 
 @Repository
-public interface CategoryRepository extends JpaRepository<CategoryEntity, Integer>{
+public interface CategoryRepository extends JpaRepository<CategoryEntity,Integer> {
 
 }

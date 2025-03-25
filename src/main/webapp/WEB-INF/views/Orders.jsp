@@ -4,11 +4,18 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>ORDER</title>
+<title>Orders Details</title>
 </head>
 <body>
-
-    <h1>Orders</h1>
+	<form action="saveorders" method="post">
+	
+	status: <input type="text" name="status"><br><br>
+	totalAmount: <input type="text" name="totalAmount"><br><br>
+	createdAt: <input type="text" name="createdAt"><br><br>
+	
+				<input type="submit" value="Add">
+	
+	</form>
 
 </body>
 </html>

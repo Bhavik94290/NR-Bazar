@@ -1,7 +1,5 @@
 package com.grownited.entity;
 
-import java.util.Date;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -9,21 +7,22 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "wishlist")
-public class WishlistEntity {
+@Table(name="wishList")
+public class WishListEntity {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer wishListId;
+	private Integer userId;
+	private Integer productId;
+	private String createdAt;
 	
-	private Integer	wishlistId;	//pk
-	private Integer	userId;	//fk : user
-	private Integer	productId;	//fk : product
-	private Date	createdAt;
-	public Integer getWishlistId() {
-		return wishlistId;
+	
+	public Integer getWishListId() {
+		return wishListId;
 	}
-	public void setWishlistId(Integer wishlistId) {
-		this.wishlistId = wishlistId;
+	public void setWishListId(Integer wishListId) {
+		this.wishListId = wishListId;
 	}
 	public Integer getUserId() {
 		return userId;
@@ -37,11 +36,12 @@ public class WishlistEntity {
 	public void setProductId(Integer productId) {
 		this.productId = productId;
 	}
-	public Date getCreatedAt() {
+	public String getCreatedAt() {
 		return createdAt;
 	}
-	public void setCreatedAt(Date createdAt) {
+	public void setCreatedAt(String createdAt) {
 		this.createdAt = createdAt;
-	}	
-
+	}
+	
+	
 }

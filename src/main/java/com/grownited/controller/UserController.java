@@ -14,11 +14,6 @@ public class UserController {
 	public String home() {
 		return "Home";
 	}
-//	  
-//	@GetMapping("viewuser")
-//	public String viewUser() {
-//		return "ViewUser";
-//	}
 
 	
 }

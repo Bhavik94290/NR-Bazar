@@ -1,7 +1,5 @@
 package com.grownited.entity;
 
-import java.util.Date;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -14,12 +12,11 @@ public class OrdersEntity {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	
-	private Integer	orderId;			
-	private Integer	userId;	//fk : user		
-	private String	status;	//pending , shipped , delievered , cancel , etc		
-	private Integer	totalAmount;			
-	private Date	createdAt;
+	private Integer orderId;
+	private Integer userId;
+	private String status;
+	private Integer totalAmount;
+	private String createdAt;
 	public Integer getOrderId() {
 		return orderId;
 	}
@@ -44,12 +41,14 @@ public class OrdersEntity {
 	public void setTotalAmount(Integer totalAmount) {
 		this.totalAmount = totalAmount;
 	}
-	public Date getCreatedAt() {
+	public String getCreatedAt() {
 		return createdAt;
 	}
-	public void setCreatedAt(Date createdAt) {
+	public void setCreatedAt(String createdAt) {
 		this.createdAt = createdAt;
-	}			
-				
+	}
+	
+	
+	
 
 }

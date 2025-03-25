@@ -1,10 +1,14 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
 <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
@@ -29,9 +33,9 @@
 
 
 
-<title>Products</title>
+<title>Admin | List Product</title>
 
-<jsp:include page="AdminCss.jsp"></jsp:include>
+<link  href="https://cdn.datatables.net/2.2.2/css/dataTables.bootstrap5.min.css" rel="stylesheet"/>
 
 
 </head>
@@ -40,38 +44,80 @@
 
 	<jsp:include page="AdminSidebar.jsp"></jsp:include>
 
-	<main id="main" class="main"><!-- height: calc(100vh - 120px); -->
+	<main id="main" class="main">
 
 		<div class="pagetitle">
-			<h1>List Products</h1>
+			<h1>List Product</h1>
 			<nav>
 				<ol class="breadcrumb">
 					<li class="breadcrumb-item"><a href="admindashboard">Home</a></li>
-					<li class="breadcrumb-item active">Dashboard</li>
+					<li class="breadcrumb-item active">List Product</li>
 				</ol>
 			</nav>
 		</div>
 		<!-- End Page Title -->
 
-		<section class="section dashboard" style="height: 100vh">
-			<div class="row" style="">
+		<section class="section dashboard">
+			<div class="row" style="min-height: 500px;">
 
 				<!-- Left side columns -->
 				<div class="col-lg-12">
-					<div class="row" >
+					<div class="row">
 						<!-- Reports -->
 						<div class="col-12">
 							<div class="card">
 
-							 
+
 								<div class="card-body">
 									<h5 class="card-title">
-										Reports <span>/Today</span>
+										Users<span>/all</span>
 									</h5>
 
-					<br><br>
-					<br><br>
-					
+
+									<table class="table datatable datatable-table table-hover" id="product">
+										<thead>
+											
+						                    <th>Product Name</th>
+						                    <th>category name</th>
+						                    <th>subCategory name</th>
+						                    <th>Base Price</th>
+						                    <th>Offer Price</th>
+						                    <th>Offer Percentage</th>
+						                    <th>Product Detail</th>
+						                    <th>Image1</th>
+						                    <th>Image2</th>
+						                    <th>Image3</th>
+						                    <th>Quantity</th>
+						                    <th>Created At</th>
+						                    <th>Actions</th>
+										</thead>
+
+										<tbody>
+											<c:forEach items="${allProductList}" var="p">
+												<tr>
+													
+							                        <td>${p[10]}</td>
+							                        <td>${p[12]}</td>
+							                        <td>${p[13]}</td>
+							                        <td>${p[1]}</td>
+							                        <td>${p[4]}</td>
+							                        <td>${p[5]}</td>
+							                        <td>${p[6]}</td>
+							                        <td>${p[7]}</td>
+							                        <td>${p[8]}</td>
+							                        <td>${p[9]}</td>
+							                        <td>${p[11]}</td>
+							                        <td>${p[3]}</td>
+													<td><a href="editproduct?productId=${p[0]}">Edit</a> |<a href="deleteproduct?productId=${p[0]}">Delete</a>|
+													 <a href="viewproduct?productId=${p[0]}">View</a>
+													 </td>
+												</tr>
+											</c:forEach>
+										</tbody>
+
+									</table>
+
+
 
 								</div>
 
@@ -97,5 +143,19 @@
 
 	<jsp:include page="AdminJs.jsp"></jsp:include>
 	
+	
+
+	<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+	<script src="https://cdn.datatables.net/2.2.2/js/dataTables.min.js"></script>
+	<script src="https://cdn.datatables.net/2.2.2/js/dataTables.bootstrap5.min.js"></script>
+
+	<script type="text/javascript">
+
+	$( document ).ready(function() {
+		let table = new DataTable('#product');
+	});
+	</script>
+
 </body>
 </html>

@@ -97,7 +97,7 @@ public class CityController {
 			CityEntity dbCity = op.get();
 			
 			dbCity.setCityName(cityEntity.getCityName());
-			dbCity.setCityId(cityEntity.getCityId());
+			dbCity.setStateId(cityEntity.getStateId());
 			
 			repositoryCity.save(dbCity);
 			

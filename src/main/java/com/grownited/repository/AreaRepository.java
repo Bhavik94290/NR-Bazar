@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 import com.grownited.entity.AreaEntity;
 
 @Repository
-public interface AreaRepository extends JpaRepository<AreaEntity, Integer>{
+public interface AreaRepository extends JpaRepository<AreaEntity,Integer> {
+	
 
 }

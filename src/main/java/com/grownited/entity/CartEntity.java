@@ -7,16 +7,16 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "cart")
+@Table(name="cartDetails")
 public class CartEntity {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer cartId;
+	private Integer userId;
+	private Integer productId;
+	private String quantity;
 	
-    private Integer	cartId;	
-	private Integer	userId;	//fk : user
-	private Integer	productId;	//fk : product
-	private String	quantity;
 	public Integer getCartId() {
 		return cartId;
 	}
@@ -40,6 +40,7 @@ public class CartEntity {
 	}
 	public void setQuantity(String quantity) {
 		this.quantity = quantity;
-	}	
-  
+	}
+
+
 }

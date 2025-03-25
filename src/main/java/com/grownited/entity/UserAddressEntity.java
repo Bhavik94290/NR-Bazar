@@ -7,20 +7,21 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table( name = "useraddress")
+@Table(name="userAddress")
 public class UserAddressEntity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer	userAddressId;
-	private Integer	userId;
-	private	String	title;
-	private	String	unitName;
-	private	String street;
-	private	String	landMark;
-	private	Integer	cityId;
-	private	Integer stateId;
-	private	Integer areaId;
-	private	Integer zipCode;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer userAddressId;
+	private Integer userId;
+	private String titelName;
+	private String unitName;
+	private String	streetName;
+	private String landMarkName;
+	private Integer cityId;
+	private Integer	stateId;
+	private String addressDetail;
+	private Integer zipCode;
 	public Integer getUserAddressId() {
 		return userAddressId;
 	}
@@ -33,11 +34,11 @@ public class UserAddressEntity {
 	public void setUserId(Integer userId) {
 		this.userId = userId;
 	}
-	public String getTitle() {
-		return title;
+	public String getTitelName() {
+		return titelName;
 	}
-	public void setTitle(String title) {
-		this.title = title;
+	public void setTitelName(String titelName) {
+		this.titelName = titelName;
 	}
 	public String getUnitName() {
 		return unitName;
@@ -45,17 +46,17 @@ public class UserAddressEntity {
 	public void setUnitName(String unitName) {
 		this.unitName = unitName;
 	}
-	public String getStreet() {
-		return street;
+	public String getStreetName() {
+		return streetName;
 	}
-	public void setStreet(String street) {
-		this.street = street;
+	public void setStreetName(String streetName) {
+		this.streetName = streetName;
 	}
-	public String getLandMark() {
-		return landMark;
+	public String getLandMarkName() {
+		return landMarkName;
 	}
-	public void setLandMark(String landMark) {
-		this.landMark = landMark;
+	public void setLandMarkName(String landMarkName) {
+		this.landMarkName = landMarkName;
 	}
 	public Integer getCityId() {
 		return cityId;
@@ -69,11 +70,11 @@ public class UserAddressEntity {
 	public void setStateId(Integer stateId) {
 		this.stateId = stateId;
 	}
-	public Integer getAreaId() {
-		return areaId;
+	public String getAddressDetail() {
+		return addressDetail;
 	}
-	public void setAreaId(Integer areaId) {
-		this.areaId = areaId;
+	public void setAddressDetail(String addressDetail) {
+		this.addressDetail = addressDetail;
 	}
 	public Integer getZipCode() {
 		return zipCode;
@@ -83,5 +84,5 @@ public class UserAddressEntity {
 	}
 	
 	
-	
+
 }
