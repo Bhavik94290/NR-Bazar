@@ -1,5 +1,6 @@
 package com.grownited.controller;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import java.util.Optional;
@@ -43,6 +44,7 @@ public class WishListController {
 		UserEntity user = (UserEntity) session.getAttribute("user");
 		Integer userId = user.getUserId(); 
 		entityWishList.setUserId(userId);
+		entityWishList.setCreatedAt(LocalDate.now());
 		wishListRepo.save(entityWishList);
 		
 		return"redirect:/wishlist";

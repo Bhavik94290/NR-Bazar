@@ -1,5 +1,6 @@
 package com.grownited.controller;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import java.util.Optional;
@@ -45,6 +46,8 @@ public class ReviewController {
 		UserEntity user = (UserEntity) session.getAttribute("user");
 		Integer userId = user.getUserId(); 
 		entityReview.setUserId(userId);
+		entityReview.setCreatedAt(LocalDate.now());
+		
 		reviewRepo.save(entityReview);
 		return"redirect:/review";
 	}

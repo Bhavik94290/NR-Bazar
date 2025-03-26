@@ -223,7 +223,7 @@ public class sessionController {
 						return "redirect:/admindashboard";
 					} else if (dbUser.getRole().equals("USER")) {
 
-						return "redirect:/home";
+						return "redirect:/userdashboard";
 					} else {
 						model.addAttribute("error", "Please contact Admin with Error Code #0991");
 						return "Login";
@@ -240,5 +240,10 @@ public class sessionController {
 			session.invalidate();
 			return "redirect:/Login";// login url
 		}
+		@GetMapping("userdashboard")
+		public String userDashboard() {
+			return"UserDashboard";
+		}
 	
+		
 }

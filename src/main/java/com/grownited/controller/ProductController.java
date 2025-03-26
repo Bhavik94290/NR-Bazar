@@ -1,5 +1,6 @@
 package com.grownited.controller;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import java.util.Optional;
@@ -55,8 +56,9 @@ public class ProductController {
 		System.out.println(entityProduct.getQuantity());
 		System.out.println(entityProduct.getCreatedAt());
 		
+		entityProduct.setCreatedAt(LocalDate.now());
 		productRepo.save(entityProduct);
-		return"Product";
+		return"redirect:/product";
 	}
 	
 	@GetMapping("listproduct")

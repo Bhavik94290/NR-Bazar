@@ -1,5 +1,7 @@
 package com.grownited.entity;
 
+import java.time.LocalDate;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -17,7 +19,7 @@ public class ReviewEntity {
 	private Integer productId;
 	private String reviewText;
 	private String rating;
-	private String createdAt;
+	private LocalDate createdAt;
 	public Integer getReviewId() {
 		return reviewId;
 	}
@@ -48,12 +50,13 @@ public class ReviewEntity {
 	public void setRating(String rating) {
 		this.rating = rating;
 	}
-	public String getCreatedAt() {
+	public LocalDate getCreatedAt() {
 		return createdAt;
 	}
-	public void setCreatedAt(String createdAt) {
+	public void setCreatedAt(LocalDate createdAt) {
 		this.createdAt = createdAt;
 	}
+	
 	
 	
 	

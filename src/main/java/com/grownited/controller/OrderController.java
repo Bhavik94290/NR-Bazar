@@ -1,5 +1,6 @@
 package com.grownited.controller;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -36,6 +37,7 @@ public class OrderController {
 		UserEntity user = (UserEntity) session.getAttribute("user");
 		Integer userId = user.getUserId(); 
 		entityOrders.setUserId(userId);
+		entityOrders.setCreatedAt(LocalDate.now());
 		ordersRepo.save(entityOrders);
 		
 		return"redirect:/orders";
