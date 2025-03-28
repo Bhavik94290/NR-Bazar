@@ -240,10 +240,7 @@ public class sessionController {
 			session.invalidate();
 			return "redirect:/Login";// login url
 		}
-		@GetMapping("userdashboard")
-		public String userDashboard() {
-			return"UserDashboard";
-		}
+		
 	
 		
 }

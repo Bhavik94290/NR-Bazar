@@ -52,7 +52,7 @@
 									</h5>
 
 
-									<table class="table datatable datatable-table table-hover" id="userAddress">
+									<table class="table datatable datatable-table table-hover" id="user_address">
 										<thead>										
 						                    
 						                    <th>Title Name</th>
@@ -125,7 +125,7 @@
 	<script type="text/javascript">
 
 	$( document ).ready(function() {
-		let table = new DataTable('#userAddress');
+		let table = new DataTable('#user_address');
 	});
 	</script>
 

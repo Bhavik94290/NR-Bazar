@@ -73,7 +73,7 @@
 									</h5>
 
 
-									<table class="table datatable datatable-table table-hover" id="orderDetail">
+									<table class="table datatable datatable-table table-hover" id="order_detail">
 										<thead>
 											
 						                    <th>status</th>
@@ -138,7 +138,7 @@
 	<script type="text/javascript">
 
 	$( document ).ready(function() {
-		let table = new DataTable('#orderDetail');
+		let table = new DataTable('#order_detail');
 	});
 	</script>
 

@@ -74,7 +74,7 @@
 									</h5>
 
 
-									<table class="table datatable datatable-table table-hover" id="wishList">
+									<table class="table datatable datatable-table table-hover" id="wish_list">
 										<thead>
 											
 						                    <th>Created At</th>
@@ -136,7 +136,7 @@
 	<script type="text/javascript">
 
 	$( document ).ready(function() {
-		let table = new DataTable('#wishList');
+		let table = new DataTable('#wish_list');
 	});
 	</script>
 

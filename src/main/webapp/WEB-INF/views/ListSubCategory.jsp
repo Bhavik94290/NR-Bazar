@@ -72,7 +72,7 @@
 									</h5>
 
 
-									<table class="table datatable datatable-table table-hover" id="subCategory">
+									<table class="table datatable datatable-table table-hover" id="sub_category">
 										<thead>
 						                    <th>Category name</th>
 						                    <th>Sub-category Name</th>
@@ -129,7 +129,7 @@
 	<script type="text/javascript">
 
 	$( document ).ready(function() {
-		let table = new DataTable('#subCategory');
+		let table = new DataTable('#sub_category');
 	});
 	</script>
 

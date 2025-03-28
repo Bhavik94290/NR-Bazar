@@ -24,9 +24,9 @@
 		</a>
 			<ul id="components-nav" class="nav-content collapse "
 				data-bs-parent="#sidebar-nav">
-				<li><a href="viewuser"> <i class="bi bi-circle"></i><span>Add
+				<!--  <li><a href="viewuser"> <i class="bi bi-circle"></i><span>Add
 							User</span>
-				</a></li>
+				</a></li>-->
 				<li><a href="listuser"> <i class="bi bi-circle"></i><span>List
 							User</span>
 				</a></li>
