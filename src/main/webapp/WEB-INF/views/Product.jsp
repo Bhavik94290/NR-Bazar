@@ -37,7 +37,7 @@
               <h5 class="card-title">Add Product</h5>
 
               <!-- Vertical Form -->
-              <form action="saveproduct" method="post" class="row g-3">
+              <form action="saveproduct" method="post" enctype="multipart/form-data" class="row g-3">
                 <div class="col-12">
                   <label for="inputNanme4" class="form-label">Product Name</label>
                   <input type="text" name="productName" class="form-control" id="inputNanme4">
@@ -65,17 +65,17 @@
                 
                 <div class="col-12">
                   <label for="inputNanme4" class="form-label">Product Image1</label>
-                  <input type="file" name="productImageURL1" class="form-control" id="inputNanme4">
+                  <input type="file" name="Image" class="form-control" id="inputNanme4">
                 </div>
                 
                 <div class="col-12">
                   <label for="inputNanme4" class="form-label">Product Image2</label>
-                  <input type="file" name="productImageURL2" class="form-control" id="inputNanme4">
+                  <input type="file" name="Image2" class="form-control" id="inputNanme4">
                 </div>
                 
                 <div class="col-12">
                   <label for="inputNanme4" class="form-label">Product Image3</label>
-                  <input type="file" name="productImageURL3" class="form-control" id="inputNanme4">
+                  <input type="file" name="Image3" class="form-control" id="inputNanme4">
                 </div>
                 
                 <div class="col-12">
@@ -83,10 +83,7 @@
                   <input type="text" name="quantity" class="form-control" id="inputNanme4">
                 </div>
                 
-                <div class="col-12">
-                  <label for="inputNanme4" class="form-label">CreatedAt</label>
-                  <input type="text" name="createdAt" class="form-control" id="inputNanme4">
-                </div>
+                
                 
                 <div class="col-12">
                   <label for="inputNanme4" class="form-label">Category</label>

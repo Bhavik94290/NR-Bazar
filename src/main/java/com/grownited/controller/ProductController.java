@@ -1,8 +1,9 @@
 package com.grownited.controller;
 
+import java.io.IOException;
 import java.time.LocalDate;
 import java.util.List;
-
+import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +11,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.multipart.MultipartFile;
 
+import com.cloudinary.Cloudinary;
+import com.cloudinary.utils.ObjectUtils;
 import com.grownited.entity.CartEntity;
 import com.grownited.entity.CategoryEntity;
 import com.grownited.entity.ProductEntity;
@@ -31,6 +35,9 @@ public class ProductController {
 	@Autowired
 	ProductRepository productRepo;
 	
+	@Autowired
+	Cloudinary cloudinary;
+	
 	@GetMapping("product")
 	public String product(Model model) {
 		
@@ -43,23 +50,31 @@ public class ProductController {
 	}
 	
 	@PostMapping("saveproduct")
-	public String saveProduct(ProductEntity entityProduct) {
-		
-		System.out.println(entityProduct.getProductName());
-		System.out.println(entityProduct.getBasePrice());
-		System.out.println(entityProduct.getOfferPrice());
-		System.out.println(entityProduct.getOfferePercentage());
-		System.out.println(entityProduct.getProductDetail());
-		System.out.println(entityProduct.getProductImageURL1());
-		System.out.println(entityProduct.getProductImageURL2());
-		System.out.println(entityProduct.getProductImageURL3());
-		System.out.println(entityProduct.getQuantity());
-		System.out.println(entityProduct.getCreatedAt());
-		
-		entityProduct.setCreatedAt(LocalDate.now());
-		productRepo.save(entityProduct);
-		return"redirect:/product";
-	}
+	public String saveproduct(ProductEntity productEntity,MultipartFile Image,MultipartFile Image2,MultipartFile Image3) {
+	    
+	    try {
+	        // Upload productPic1
+	        Map result1 = cloudinary.uploader().upload(Image.getBytes(), ObjectUtils.emptyMap());
+	        productEntity.setProductImageURL1(result1.get("url").toString());
+
+	        // Upload productPic2
+	        Map result2 = cloudinary.uploader().upload(Image2.getBytes(), ObjectUtils.emptyMap());
+	        productEntity.setProductImageURL2(result2.get("url").toString());
+
+	        // Upload productPic3
+	        Map result3 = cloudinary.uploader().upload(Image3.getBytes(), ObjectUtils.emptyMap());
+	        productEntity.setProductImageURL3(result3.get("url").toString());
+
+	    } catch (IOException e) {
+	        e.printStackTrace();
+	    }
+		productEntity.setCreatedAt(LocalDate.now());
+
+		productRepo.save(productEntity);
+
+	    return "redirect:/product";
+	}	
+	
 	
 	@GetMapping("listproduct")
 	public String listProduct(Model model) {

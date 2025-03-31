@@ -88,7 +88,6 @@
 						                    <th>Image2</th>
 						                    <th>Image3</th>
 						                    <th>Quantity</th>
-						                    <th>Created At</th>
 						                    <th>Actions</th>
 										</thead>
 
@@ -103,11 +102,11 @@
 							                        <td>${p[4]}</td>
 							                        <td>${p[5]}</td>
 							                        <td>${p[6]}</td>
-							                        <td>${p[7]}</td>
-							                        <td>${p[8]}</td>
-							                        <td>${p[9]}</td>
-							                        <td>${p[11]}</td>
+<td><img src="${p[7]}" class="card-img-top" alt="Image1" style="max-height: 250px;"></td>
+<td><img src="${p[8]}" class="card-img-top" alt="Image2" style="max-height: 250px;"></td>
+<td><img src="${p[9]}" class="card-img-top" alt="Image3" style="max-height: 250px;"></td>
 							                        <td>${p[3]}</td>
+
 													<td><a href="editproduct?productId=${p[0]}">Edit</a> |<a href="deleteproduct?productId=${p[0]}">Delete</a>|
 													 <a href="viewproduct?productId=${p[0]}">View</a>
 													 </td>
