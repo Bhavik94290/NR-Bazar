@@ -10,7 +10,9 @@
 <title>Add User Address</title>
 
 <jsp:include page="AdminCss.jsp"></jsp:include>
-
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"
+	integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+	crossorigin="anonymous"></script>
 
 </head>
 <body>
@@ -62,20 +64,9 @@
                   <label for="inputNanme4" class="form-label">Zip Code</label>
                   <input type="text" name="zipCode" class="form-control" id="inputNanme4">
                 </div>
-                
-                <div class="col-12">
-                  <label for="inputNanme4" class="form-label">City</label>
-                 	<select name="cityId" />
-					<option>Select City</option>			
-					<c:forEach items="${allCity}" var="c">
-						<option value="${c.cityId}">${c.cityName }</option>			
-					</c:forEach>
-					</select>
-                </div>
-                
                 <div class="col-12">
                   <label for="inputNanme4" class="form-label">State</label>
-                  	<select name="stateId" />
+                  	<select name="stateId" id="state" class="form-control" onchange="getCity()" required />
 					<option>Select State</option>			
 						<c:forEach items="${allState}" var="s">
 							<option value="${s.stateId}">${s.stateName }</option>			
@@ -83,6 +74,15 @@
 					</select>
                 </div>
                 
+                <div class="col-12">
+                  <label for="inputNanme4" class="form-label">City</label>
+                 	<select name="cityId"id="city" class="form-control" required />
+					<option>Select City</option>			
+					<c:forEach items="${allCity}" var="c">
+						<option value="${c.cityId}">${c.cityName}</option>			
+					</c:forEach>
+					</select>
+                </div>                
                 <div class="text-center">
                   <button type="submit" class="btn btn-primary">Submit</button>
                  <!-- <button type="reset" class="btn btn-secondary">Reset</button> --> 
@@ -91,38 +91,44 @@
 
             </div>
           </div>
+         </div>
+          
 		</section>
 
 	<jsp:include page="AdminFooter.jsp"></jsp:include>
 
 	<jsp:include page="AdminJs.jsp"></jsp:include>
+	 <script type="text/javascript">
+
+	function getCity(){
+		console.log("state Change");
+		let stateId = document.getElementById("state").value;
+		console.log(stateId);	
+		//url -> json REST 
+		
+		  $.get( "/getallcitybystateid/"+stateId, function() {
+			})
+			  .done(function(data) {
+			    console.log(data);
+			    //fill the subcategory 
+			    $('#city').empty().append('<option selected="selected" value="-1">Select City</option>')
+			    
+			    for (var i = 0; i < data.length; i++) {
+      			  $('#city').append('<option value="' + data[i].cityId + '">' + data[i].cityName + '</option>');
+   				 }
+			    
+			  })
+			  .fail(function() {
+			    alert( "error" );
+			  })
+			  
+		
+	}
+
+
+</script> 
 </body>
 </html>
 
 
 
-<!-- <body>
-	<form action="saveaddress" method="post">		
-	Title: <input type="text" name="titelName"><br><br>
-	UnitName: <input type="text" name="unitName"><br><br>
-	Street: <input type="text" name="streetName"><br><br>
-	LandMark: <input type="text" name="landMarkName"><br><br>
-	ZipCode: <input type="text" name="zipCode"><br><br>
-		City: <select name="cityId" />
-			<option>Select City</option>			
-			<c:forEach items="${allCity}" var="c">
-					<option value="${c.cityId}">${c.cityName }</option>			
-			</c:forEach>
-		</select>
-		
-		State: <select name="stateId" />
-			<option>Select State</option>			
-			<c:forEach items="${allState}" var="s">
-					<option value="${s.stateId}">${s.stateName }</option>			
-			</c:forEach>
-		</select>
-		<br><br>		
-		<input type="submit" value="Add">	
-	</form>
-</body>
- -->

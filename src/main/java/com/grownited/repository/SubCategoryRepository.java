@@ -11,6 +11,9 @@ import com.grownited.entity.SubCategoryEntity;
 @Repository
 public interface SubCategoryRepository extends JpaRepository<SubCategoryEntity,Integer>{
 
+	List<SubCategoryEntity> findByCategoryId(Integer categoryId);
+
+	
 	@Query(value="select sc.*,c.category_name from sub_category sc,category c where sc.category_id = c.category_id",nativeQuery = true)
 	List<Object[]> getAll();
 	

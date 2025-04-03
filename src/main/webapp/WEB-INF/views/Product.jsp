@@ -10,7 +10,9 @@
 <title>Add Product</title>
 
 <jsp:include page="AdminCss.jsp"></jsp:include>
-
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"
+	integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+	crossorigin="anonymous"></script>
 
 </head>
 <body>
@@ -87,8 +89,8 @@
                 
                 <div class="col-12">
                   <label for="inputNanme4" class="form-label">Category</label>
-                  <select name="categoryId" />
-					<option>Select Category</option>			
+                  <select name="categoryId"id="category"  onchange="getSubCategory()" required/>
+					<option value="-1">Select Category</option>			
 						<c:forEach items="${allCategory}" var="c">
 							<option value="${c.categoryId}">${c.categoryName }</option>			
 						</c:forEach>
@@ -97,8 +99,8 @@
                 
                 <div class="col-12">
                   <label for="inputNanme4" class="form-label">Sub Category</label>
-                  <select name="subCategoryId" />
-					<option>Select Sub Category</option>			
+                  <select name="subCategoryId" id="subCategory" required />
+					<option value="-1">Select Sub Category</option>			
 						<c:forEach items="${allSubCategory}" var="a">
 							<option value="${a.subCategoryId}">${a.subCategoryName }</option>			
 						</c:forEach>
@@ -113,8 +115,38 @@
 
             </div>
           </div>
+          </div>
+          
 		</section>
+<script type="text/javascript">
 
+	function getSubCategory(){
+		console.log("category Change");
+		let categoryId = document.getElementById("category").value;
+		console.log(categoryId);	
+		//url -> json REST 
+		
+		  $.get( "getallsubcategorybycategoryid/"+categoryId, function() {
+			})
+			  .done(function(data) {
+			    console.log(data);
+			    //fill the subcategory 
+			    $('#subCategory').empty().append('<option selected="selected" value="-1">Select SubCategory</option>')
+			    
+			    for (var i = 0; i < data.length; i++) {
+      			  $('#subCategory').append('<option value="' + data[i].subCategoryId + '">' + data[i].subCategoryName + '</option>');
+   				 }
+			    
+			  })
+			  .fail(function() {
+			    alert( "error" );
+			  })
+			  
+		
+	}
+
+
+</script> 
 	<jsp:include page="AdminFooter.jsp"></jsp:include>
 
 	<jsp:include page="AdminJs.jsp"></jsp:include>
