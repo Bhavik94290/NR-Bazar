@@ -1,5 +1,6 @@
 package com.grownited.controller;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -61,6 +62,7 @@ public class sessionController {
 	userEntity.setPassword(encryptePassword);
 	
 	userEntity.setRole("USER");
+	userEntity.setCreatedAt(LocalDate.now());
 	userRepo.save(userEntity);
 	
 	// send mail

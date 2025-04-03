@@ -1,5 +1,7 @@
 package com.grownited.entity;
 
+import java.time.LocalDate;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -21,7 +23,10 @@ public class UserEntity {
 	private String contactNum;
 	private String gender;
 	private String role;// admin, user , seller , buyer
-	private String otp; 
+	private String otp;
+	private String status;
+	private LocalDate createdAt;
+	
 	
 	
 
@@ -97,4 +102,21 @@ public class UserEntity {
 		this.role = role;
 	}
 
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	public LocalDate getCreatedAt() {
+		return createdAt;
+	}
+
+	public void setCreatedAt(LocalDate createdAt) {
+		this.createdAt = createdAt;
+	}
+    
+	
 }

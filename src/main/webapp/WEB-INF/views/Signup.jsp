@@ -102,22 +102,7 @@
 		        	</label><br>
 					  <div class="invalid-feedback">Please select at least one option!</div>
 					</div>
-					
-					
-					<div class="col-12">
-                      <label for="createdAt" class="form-label">Created At</label>
-                      <input type="datetime-local"name="createdAt" class="form-control" id="createdAt" required>
-                      <div class="invalid-feedback">Please select a date!</div>
-                    </div>
                     
-                    <div class="col-12">
-                      <label for="status" class="form-label">Status</label>
-		            <select id="status" name="status" required>
-		                <option value="1">Active</option>
-		                <option value="2">Disabled</option>
-		            </select>
-                      <div class="invalid-feedback">Please select your status!</div>
-                    </div>
                     
                     <div class="col-12">
                       <div class="form-check">
