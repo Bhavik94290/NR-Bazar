@@ -15,6 +15,7 @@ import com.grownited.entity.ProductEntity;
 import com.grownited.entity.UserEntity;
 import com.grownited.repository.CartRepository;
 import com.grownited.repository.ProductRepository;
+import com.grownited.repository.UserRepository;
 
 import jakarta.servlet.http.HttpSession;
 
@@ -26,6 +27,33 @@ public class CartController {
 	
 	@Autowired
 	CartRepository cartReposotory;
+	
+	@Autowired
+	UserRepository repoUser;
+	
+	
+	//Add to cart 6/april
+		@GetMapping("addtocart")
+		public String addToCart(Integer productId,HttpSession session, Integer userId) {
+			
+			UserEntity user = (UserEntity) session.getAttribute("user");
+			CartEntity cart = new CartEntity();
+			cart.setProductId(productId);
+			cart.setUserId(userId);
+			cartReposotory.save(cart);
+			return"redirect:/usercart";
+		}
+		
+		//6/april
+		@GetMapping("usercart")
+		public String userCart(HttpSession session,Model model) {
+			UserEntity user = (UserEntity) session.getAttribute("user");
+			List<Object[]> product = cartReposotory.getAllProductFromCart(user.getUserId());
+			
+			model.addAttribute("product", product);
+			return"UserCart";
+		}
+	
 	
 	@GetMapping("cart")
 	public String cart(Model model) {
