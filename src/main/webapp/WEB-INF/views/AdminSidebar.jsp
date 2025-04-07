@@ -194,13 +194,36 @@
         </ul>
       </li><!-- End Appointments Nav -->
 		
-
+		
 		<li class="nav-heading">Manage</li>
 
-		<li class="nav-item"><a class="nav-link collapsed"
-			href="listmembers"> <i class="bi bi-person"></i> <span>Members</span>
-		</a></li>
-		<!-- End Profile Page Nav -->
+			<li class="nav-item">
+			    <a class="nav-link collapsed" data-bs-target="#report-nav" data-bs-toggle="collapse" href="#">
+			        <i class="bi bi-reception-3"></i>
+			        <span>Reports</span>
+			        <i class="bi bi-chevron-down ms-auto"></i>
+			    </a>
+			    <ul id="report-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
+			        <li>
+			            <a href="salesreport">
+			                <i class="bi bi-circle"></i><span>Sales Reports</span>
+			            </a>
+			        </li>
+			        <li>
+			            <a href="customerreport">
+			                <i class="bi bi-circle"></i><span>Customer Reports</span>
+			            </a>
+				        </li>
+			        <li>
+			            <a href="orderreport">
+			                <i class="bi bi-circle"></i><span>Order Reports</span>
+			            </a>
+			        </li>
+			    </ul>
+			</li>
+
+
+
 
 		<li class="nav-item"><a class="nav-link collapsed"
 			href="userdashboard"> <i class="bi bi-building-fill"></i> <span>Home</span>

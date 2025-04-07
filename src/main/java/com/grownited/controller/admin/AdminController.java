@@ -10,10 +10,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import com.grownited.repository.OrdersRepository;
 import com.grownited.repository.ProductRepository;
 import com.grownited.repository.UserRepository;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 @Controller
 public class AdminController {
 	
+  
 
 	@Autowired
 	UserRepository repouserEntity;
@@ -41,18 +44,39 @@ public class AdminController {
 
 		int month = today.getMonthValue();
 
-		Integer thisMonthUserCount = repouserEntity.countThisMonthInterns(month); 
+        Integer thisMonthUserCount = repouserEntity.countThisMonthUser(month);
 		
+		Integer monthWiseUsers [] = new Integer[12];
+ 		
+		for(int i = 1; i <= 12; i++) {
+			monthWiseUsers [i-1] = repouserEntity.countThisMonthUser(i);
+		}
 		
 		model.addAttribute("totalOrders",totalOrders);
 		model.addAttribute("totalUser",totalUser);
 		model.addAttribute("thisMonthUserCount",thisMonthUserCount);
 		model.addAttribute("totalProduct",totalProduct);
+		model.addAttribute("currentMonth", LocalDate.now().getMonth().name());
 		
 		return "AdminDashboard";
 		
 	}
 	
+	@GetMapping("salesreport")
+	public String salesReport() {
+		return "SalesReport";
+	}
 	
+	@GetMapping("customerreport")
+	public String customerReport() {
+		return "CustomerReport";
+	}
+	
+	@GetMapping("orderreport")
+	public String orderReport() {
+		return "OrderReport 	";
+	}
+	
+
 	
 }

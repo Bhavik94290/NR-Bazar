@@ -515,15 +515,16 @@
 					</div>
 				</div>
 			</div>
-<c:forEach items="${allProductList}" var="p">
 			<div class="row isotope-grid">
+				<c:forEach items="${allProductList}" var="p">
+			
 				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women">
 					<!-- Block2 -->
 					<div class="block2">
 						<div class="block2-pic hov-img0 label-new" data-label="New">
 							<img src="${p.productImageURL1 }" alt="IMG-PRODUCT">
 
-							<a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
+							<a href="quickview?productId=${p.productId}" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-modal1">
 								Quick View
 							</a>
 						</div>
@@ -548,8 +549,9 @@
 						</div>
 					</div>
 				</div>
+				</c:forEach>
 			</div>
-			</c:forEach>
+			
 
 			<!-- Pagination -->
 			<div class="flex-c-m flex-w w-full p-t-38">

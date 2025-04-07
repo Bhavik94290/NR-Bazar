@@ -1,37 +1,115 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+<!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.gstatic.com" rel="preconnect">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/quill/quill.snow.css" rel="stylesheet">
+  <link href="assets/vendor/quill/quill.bubble.css" rel="stylesheet">
+  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="assets/vendor/simple-datatables/style.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+  
+  <jsp:include page="AdminCss.jsp"></jsp:include>
+
+
+
+
+<title>Wish-list Details</title>
+
+<jsp:include page="AdminCss.jsp"></jsp:include>
+
 </head>
 <body>
+	<jsp:include page="AdminHeader.jsp"></jsp:include>
 
-	<table class="table datatable datatable-table table-hover" id="wishList">
-										<thead>
-											
-						                    <th>Created At</th>
-						                     <th>Product name</th>
-						                    <th>First name</th>
-						                    <th>Last name</th>
-										</thead>
+	<jsp:include page="AdminSidebar.jsp"></jsp:include>
 
-										<tbody>
-											<c:forEach items="${wishList}" var="w">
-												<tr>
-                        							<td>${w[1]}</td>
-                        							<td>${w[4]}</td>
-                        							<td>${w[5]}</td>
-                        							<td>${w[6]}</td>
-													
-												</tr>
-											</c:forEach>
-										</tbody>
+	<main id="main" class="main" style="height: calc(100vh - 120px);">
 
-									</table>
+		<div class="pagetitle">
+			<h1>Wish-list Details</h1>
+			<nav>
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item"><a href="admindashboard">Home</a></li>
+					<li class="breadcrumb-item active">Wish-list Details</li>
+				</ol>
+			</nav>
+		</div>
+		<!-- End Page Title -->
 
+		<section class="section profile">
+		      <div class="row">
+		        
+		
+		        <div class="col-xl-6">
+		
+		          <div class="card">
+		            <div class="card-body pt-3">
+		            
+		              <div class="tab-content pt-2">
+		
+		                <div class="tab-pane fade show active profile-overview" id="profile-overview" role="tabpanel">
+		
+		                  <h5 class="card-title">Wish-list Details</h5>
+		
+		                  <div class="row">
+		                    <div class="col-lg-3 col-md-4 label ">Created At</div>
+		                    <div class="col-lg-9 col-md-8">${wishList[0][1]}</div>
+		                  </div>
+		                  
+		                  <div class="row">
+		                    <div class="col-lg-3 col-md-4 label ">Product name</div>
+		                    <div class="col-lg-9 col-md-8">${wishList[0][4]}</div>
+		                  </div>
+		                  
+		                  <div class="row">
+		                    <div class="col-lg-3 col-md-4 label ">First name</div>
+		                    <div class="col-lg-9 col-md-8">${wishList[0][5]}</div>
+		                  </div>
+		                  
+		                  <div class="row">
+		                    <div class="col-lg-3 col-md-4 label ">Last name</div>
+		                    <div class="col-lg-9 col-md-8">${wishList[0][6]} </div>
+		                  </div>
+		                  
+		                </div>
+		
+		            </div>
+		          </div>
+		
+		        </div>
+		      </div>
+    </section>
+
+	</main>
+	<!-- main content end  -->
+
+
+	<jsp:include page="AdminFooter.jsp"></jsp:include>
+
+	<jsp:include page="AdminJs.jsp"></jsp:include>
+	
+	
+	
 </body>
 </html>
+
+

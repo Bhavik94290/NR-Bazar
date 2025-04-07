@@ -26,6 +26,8 @@ public class UserEntity {
 	private String otp;
 	private String status;
 	private LocalDate createdAt;
+	private String profilePicPath;
+
 	
 	
 	
@@ -116,6 +118,14 @@ public class UserEntity {
 
 	public void setCreatedAt(LocalDate createdAt) {
 		this.createdAt = createdAt;
+	}
+
+	public String getProfilePicPath() {
+		return profilePicPath;
+	}
+
+	public void setProfilePicPath(String profilePicPath) {
+		this.profilePicPath = profilePicPath;
 	}
     
 	

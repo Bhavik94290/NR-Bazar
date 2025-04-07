@@ -11,8 +11,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.grownited.entity.ProductEntity;
 import com.grownited.entity.SellerEntity;
 import com.grownited.entity.UserEntity;
+import com.grownited.repository.ProductRepository;
 import com.grownited.repository.SellerRepository;
 import com.grownited.repository.UserRepository;
 import com.grownited.service.Mailservice;
@@ -35,6 +37,9 @@ public class sessionController {
 	
 	@Autowired
 	PasswordEncoder encoder;
+	
+	@Autowired
+	ProductRepository productRepo;
 	
 	@GetMapping (value = {"signup","/"})
 	public String signup() {
@@ -103,6 +108,22 @@ public class sessionController {
 	userRepo.deleteById(userId);//delete from members where memberID = :memberId
 		return "redirect:/listuser";
 	}
+	
+	@GetMapping("edituser")
+	public String editUser(Integer userId,Model model) {
+		Optional<UserEntity> op = userRepo.findById(userId);
+		if (op.isEmpty()) {
+			return "redirect:/listUser";
+		} else {
+			model.addAttribute("user",op.get());
+			return "EditUser";
+
+		}
+	}
+	
+	
+	
+	
 	
 	@GetMapping("newseller")
 	public String newSeller() {
@@ -243,6 +264,12 @@ public class sessionController {
 			return "redirect:/Login";// login url
 		}
 		
-	
+		@GetMapping("userprofile")
+		public String userprofile() {
+			//
+			return "UserProfile";
+			
+		}
+		
 		
 }

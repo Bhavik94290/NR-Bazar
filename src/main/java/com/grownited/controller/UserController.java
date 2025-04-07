@@ -16,12 +16,12 @@ public class UserController {
 	@Autowired
 	ProductRepository repositoryproduct;
 
-	@GetMapping("userdashboard")
-	public String userDashboard( Model model) {
-List<ProductEntity> productList = repositoryproduct.findAll();
-		
-		model.addAttribute("allProductList", productList);
-		return"UserDashboard";
-	}
+			@GetMapping("userdashboard")
+			public String userDashboard( Model model) {
+		List<ProductEntity> productList = repositoryproduct.findAll();
+				
+				model.addAttribute("allProductList", productList);
+				return"UserDashboard";
+			}
 	
 }

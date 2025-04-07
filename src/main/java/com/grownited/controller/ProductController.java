@@ -75,6 +75,13 @@ public class ProductController {
 	    return "redirect:/product";
 	}	
 	
+	@GetMapping("quickview")
+	public String quickView(Integer productId, Model model) {
+	    List<Object[]> product = productRepo.getByProductId(productId);
+	    model.addAttribute("product", product);
+	    return "QuickView";  // Refers to quickview.jsp or a Thymeleaf template
+	}
+
 	
 	@GetMapping("listproduct")
 	public String listProduct(Model model) {

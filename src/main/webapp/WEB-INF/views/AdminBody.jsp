@@ -34,7 +34,7 @@
 					<div class="row">
 
 						<!-- Total Users -->
-						<div class="col-xxl-4 col-md-6">
+						<div class="col-xxl-3 col-md-6">
 							<div class="card info-card sales-card">
 
 								<div class="filter">
@@ -75,7 +75,7 @@
 						<!-- End Total Users-->
 
 						<!-- Users -->
-						<div class="col-xxl-4 col-md-6">
+						<div class="col-xxl-3 col-md-6">
 							<div class="card info-card revenue-card">
 
 								<div class="filter">
@@ -117,7 +117,7 @@
 
 
                       <!-- Users -->
-						<div class="col-xxl-4 col-md-6">
+						<div class="col-xxl-3 col-md-6">
 							<div class="card info-card revenue-card">
 
 								<div class="filter">
@@ -159,7 +159,7 @@
 						
 						
 						<!-- Users This Month -->
-						<div class="col-xxl-4 col-xl-12">
+						<div class="col-xxl-3 col-xl-12">
 
 							<div class="card info-card customers-card">
 
