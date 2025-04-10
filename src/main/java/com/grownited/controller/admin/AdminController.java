@@ -62,21 +62,6 @@ public class AdminController {
 		
 	}
 	
-	@GetMapping("salesreport")
-	public String salesReport() {
-		return "SalesReport";
-	}
 	
-	@GetMapping("customerreport")
-	public String customerReport() {
-		return "CustomerReport";
-	}
-	
-	@GetMapping("orderreport")
-	public String orderReport() {
-		return "OrderReport 	";
-	}
-	
-
 	
 }

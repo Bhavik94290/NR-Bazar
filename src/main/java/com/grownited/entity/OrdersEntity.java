@@ -19,6 +19,7 @@ public class OrdersEntity {
 	private String status;
 	private Integer totalAmount;
 	private LocalDate createdAt;
+	
 	public Integer getOrderId() {
 		return orderId;
 	}

@@ -204,16 +204,18 @@
 			        <i class="bi bi-chevron-down ms-auto"></i>
 			    </a>
 			    <ul id="report-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
-			        <li>
-			            <a href="salesreport">
-			                <i class="bi bi-circle"></i><span>Sales Reports</span>
-			            </a>
-			        </li>
+			    
 			        <li>
 			            <a href="customerreport">
 			                <i class="bi bi-circle"></i><span>Customer Reports</span>
 			            </a>
 				        </li>
+			        <li>
+			            <a href="salesreport">
+			                <i class="bi bi-circle"></i><span>Sales Reports</span>
+			            </a>
+			        </li>
+			        
 			        <li>
 			            <a href="orderreport">
 			                <i class="bi bi-circle"></i><span>Order Reports</span>
