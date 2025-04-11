@@ -52,7 +52,7 @@ public class Mailservice {
 			String subject = "NR-Bazar Payment Confirmation";
 
 		    String body = "Hey " + firstName
-		            + ",\n\nYour payment of ₹" + amount + " was successfully processed."
+		            + ",\n\nYour payment of ₹" + 500.0 + " was successfully processed."
 		            + "\nCard Ending With: **** **** **** " + last4Digits
 		            + "\n\nThank you for booking your Order with NR-Bazar!"
 		            + "\n\nWe’re here to help if you need any further assistance."

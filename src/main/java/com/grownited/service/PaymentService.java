@@ -87,6 +87,9 @@ public class PaymentService {
 					
 					PaymentEntity payment  = new PaymentEntity();
 					
+					String last4 = ccNum.substring(ccNum.length() - 4);
+					String masked = "XXXX-XXXX-XXXX-" + last4;
+					
 					payment.setAmount(amount);
 					payment.setAuthCode(result.getAuthCode());
 					payment.setTranscationRefId(result.getTransId());

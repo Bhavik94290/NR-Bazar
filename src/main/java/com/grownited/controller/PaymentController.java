@@ -33,11 +33,6 @@ public class PaymentController {
 		UserEntity user = (UserEntity) session.getAttribute("user");
 		List<Object[]> carts = cartRepository.getAllCartItemByUserId(user.getUserId());
 
-		Integer amount = 0;
-		for (Object c[] : carts) {
-			amount = amount + Integer.parseInt(c[1].toString());
-		}
-
 		model.addAttribute("amount", 500.0);
 		return "CheckOut";// credit card expDate
 
@@ -52,7 +47,8 @@ public class PaymentController {
 		
 		Integer paymentId = paymentService.chargeCreditCard("3JSL6X9vgN", "622y3D73uDCKm25E", 500.0 , ccNum,expDate, user.getEmail(), user.getUserId());
       
-		 mailservice.sendPaymentStatusMail(user.getEmail(), user.getFirstName(), amount, expDate);
+		String last4 = ccNum.substring(ccNum.length() - 4);
+		 mailservice.sendPaymentStatusMail(user.getEmail(), user.getFirstName(), amount, last4);
 		
 //		cartRepo.deleteAll(userId); 
 
