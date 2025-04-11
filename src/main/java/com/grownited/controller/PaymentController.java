@@ -10,9 +10,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.grownited.entity.UserEntity;
 import com.grownited.repository.CartRepository;
+import com.grownited.service.Mailservice;
 import com.grownited.service.PaymentService;
 
 import jakarta.servlet.http.HttpSession;
+
 
 @Controller
 public class PaymentController {
@@ -22,8 +24,11 @@ public class PaymentController {
 
 	@Autowired
 	CartRepository cartRepository;
+	
+	@Autowired
+	Mailservice mailservice;
 
-	@PostMapping("checkout")
+	@GetMapping("checkout")
 	public String checkout(Model model, HttpSession session) {
 		UserEntity user = (UserEntity) session.getAttribute("user");
 		List<Object[]> carts = cartRepository.getAllCartItemByUserId(user.getUserId());
@@ -33,33 +38,27 @@ public class PaymentController {
 			amount = amount + Integer.parseInt(c[1].toString());
 		}
 
-		System.out.println("amount => " + amount);
-		model.addAttribute("amount", amount);
-		return "Checkout";// credit card expDate
+		model.addAttribute("amount", 500.0);
+		return "CheckOut";// credit card expDate
 
 	}
 
 	@PostMapping("pay")
-	public String pay(String ccNum, String expDate, HttpSession session) {
+	public String pay(String ccNum, String expDate, HttpSession session, Double amount) {
 		UserEntity user = (UserEntity) session.getAttribute("user");
 
 		// get all items from cart
 		List<Object[]> carts = cartRepository.getAllCartItemByUserId(user.getUserId());
-
-		Integer amount = 0;
-		for (Object c[] : carts) {
-			amount = amount + Integer.parseInt(c[1].toString());
-		}
-
-		System.out.println("amount => " + amount);
-		Integer paymentId = paymentService.chargeCreditCard("bizdev05", "4kJd237rZu59qAZd", amount * 1.0, ccNum,
-				expDate, user.getEmail(), user.getUserId());
-		if (paymentId == -1) {
-			return "redirect:/checkout";
-		}
+		
+		Integer paymentId = paymentService.chargeCreditCard("3JSL6X9vgN", "622y3D73uDCKm25E", 500.0 , ccNum,expDate, user.getEmail(), user.getUserId());
+      
+		 mailservice.sendPaymentStatusMail(user.getEmail(), user.getFirstName(), amount, expDate);
+		
 //		cartRepo.deleteAll(userId); 
 
-		return "redirect:/home";
+		return "redirect:/userdashboard";
 	}
+	
+	
 
 }

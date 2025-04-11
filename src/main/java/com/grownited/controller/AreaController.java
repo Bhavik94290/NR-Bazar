@@ -43,7 +43,7 @@ public class AreaController {
 	public String viewArea(Integer areaId,Model model) {
 		System.out.println("id ===> " + areaId);
 		Optional<AreaEntity> op = areaRepo.findById(areaId);
-		if (op.isEmpty()) {
+		if (!op.isPresent()) {
 			// not found
 		} else {
 			// data found
@@ -64,7 +64,7 @@ public class AreaController {
 	@GetMapping("editarea")
 	public String editArea(Integer areaId,Model model) {
 		Optional<AreaEntity> op = areaRepo.findById(areaId);
-		if (op.isEmpty()) {
+		if (!op.isPresent()) {
 			return "redirect:/listvehicle";
 		} else {
 			model.addAttribute("area",op.get());

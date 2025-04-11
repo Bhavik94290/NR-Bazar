@@ -74,7 +74,7 @@ public class CityController {
 		
 		Optional<CityEntity> op = repositoryCity.findById(cityId);
 		
-		if (op.isEmpty()) {
+		if (!op.isPresent()) {
 			return "redirect:/listcity";
 		}
 		else {

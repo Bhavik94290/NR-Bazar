@@ -62,8 +62,14 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-<!-- https://mvnrepository.com/artifact/org.apache.tomcat.embed/tomcat-embed-jasper -->
-    <dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.apache.tomcat.embed/tomcat-embed-jasper -->
+		<dependency>
+   			<groupId>org.apache.tomcat.embed</groupId>
+   			<artifactId>tomcat-embed-jasper</artifactId>
+		</dependency>
+		
+		<dependency>
 			<groupId>org.glassfish.web</groupId>
 			<artifactId>jakarta.servlet.jsp.jstl</artifactId>
 		</dependency>
@@ -72,52 +78,55 @@
 			<groupId>jakarta.servlet.jsp.jstl</groupId>
 			<artifactId>jakarta.servlet.jsp.jstl-api</artifactId>
 		</dependency>
-		<dependency>
-		    <groupId>org.apache.tomcat.embed</groupId>
-		    <artifactId>tomcat-embed-jasper</artifactId>
-		</dependency>
-
-			<dependency>
-			     <groupId>com.sun.xml.bind</groupId>
-			     <artifactId>jaxb-core</artifactId>
-			   </dependency>
-			  <dependency>
-			     <groupId>javax.xml.bind</groupId>
-			     <artifactId>jaxb-api</artifactId>
-			     <version>2.3.1</version>
-			   </dependency>
-			   <dependency>
-			     <groupId>com.sun.xml.bind</groupId>
-			     <artifactId>jaxb-impl</artifactId>
-			   </dependency>
-			   
-			<!-- https://mvnrepository.com/artifact/net.authorize/anet-java-sdk -->
-				<dependency>
-				    <groupId>net.authorize</groupId>
-				    <artifactId>anet-java-sdk</artifactId>
-				    <version>2.0.7</version>
-				</dependency>
-			
-			<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-crypto -->
-				<dependency>
-				    <groupId>org.springframework.security</groupId>
-				    <artifactId>spring-security-crypto</artifactId>
-				  
-				</dependency>
-		        <dependency>
-					<groupId>com.cloudinary</groupId>
-					<artifactId>cloudinary-http44</artifactId>
-					<version>1.33.0</version>
-				</dependency>
-
-
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-mail</artifactId>
 		</dependency>
-	</dependencies>
-	<build>
+		
+		<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-crypto -->
+		<dependency>
+    		<groupId>org.springframework.security</groupId>
+    		<artifactId>spring-security-crypto</artifactId>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.cloudinary</groupId>
+			<artifactId>cloudinary-http44</artifactId>
+			<version>1.33.0</version>
+		</dependency>
+		
+		 <dependency>
+		     <groupId>com.sun.xml.bind</groupId>
+		     <artifactId>jaxb-core</artifactId>
+		     <version>2.3.0.1</version>
+		 </dependency>
+		 <dependency>
+		     <groupId>javax.xml.bind</groupId>
+		     <artifactId>jaxb-api</artifactId>
+		     <version>2.3.1</version>
+		 </dependency>
+		    <dependency>
+		     <groupId>com.sun.xml.bind</groupId>
+		     <artifactId>jaxb-impl</artifactId>
+		     <version>2.3.1</version>
+		 </dependency>
+  
+<!-- https://mvnrepository.com/artifact/net.authorize/anet-java-sdk -->
+		<dependency>
+			<groupId>net.authorize</groupId>
+			<artifactId>anet-java-sdk</artifactId>
+			<version>2.0.7</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
+<dependency>
+    <groupId>javax.servlet</groupId>
+    <artifactId>javax.servlet-api</artifactId>
+    <version>3.1.0</version>
+</dependency>
+
+	</dependencies>	<build>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>

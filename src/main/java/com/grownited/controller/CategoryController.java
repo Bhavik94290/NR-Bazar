@@ -43,7 +43,7 @@ public class CategoryController {
 	public String viewCategory(Integer categoryId,Model model) {
 		System.out.println("id ===> " + categoryId);
 		Optional<CategoryEntity> op = categoryRepo.findById(categoryId);
-		if (op.isEmpty()) {
+		if (!op.isPresent()) {
 			// not found
 		} else {
 			// data found
@@ -64,7 +64,7 @@ public class CategoryController {
 	@GetMapping("editcategory")
 	public String editCategory(Integer categoryId,Model model) {
 		Optional<CategoryEntity> op = categoryRepo.findById(categoryId);
-		if (op.isEmpty()) {
+		if (!op.isPresent()) {
 			return "redirect:/listcategory";
 		} else {
 			model.addAttribute("category",op.get());

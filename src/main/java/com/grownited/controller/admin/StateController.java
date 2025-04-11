@@ -48,7 +48,7 @@ public class StateController {
 		
 		Optional<StateEntity> op = repoState.findById(stateId);
 		
-		if (op.isEmpty()) {
+		if (!op.isPresent()) {
 			// data not found
 		}
 		else {
@@ -73,7 +73,7 @@ public class StateController {
 		
 		Optional<StateEntity> op = repoState.findById(stateId);
 		
-		if (op.isEmpty()) {
+		if (!op.isPresent()) {
 			return "redirect:/liststate";
 		}
 		else {

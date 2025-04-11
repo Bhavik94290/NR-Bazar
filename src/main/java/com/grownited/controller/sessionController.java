@@ -91,7 +91,7 @@ public class sessionController {
 		
 		Optional<UserEntity> op = userRepo.findById(userId);
 		
-		if (op.isEmpty()) {
+		if (!op.isPresent()) {
 			// data not found
 		}
 		else {
@@ -112,7 +112,7 @@ public class sessionController {
 	@GetMapping("edituser")
 	public String editUser(Integer userId,Model model) {
 		Optional<UserEntity> op = userRepo.findById(userId);
-		if (op.isEmpty()) {
+		if (!op.isPresent()) {
 			return "redirect:/listUser";
 		} else {
 			model.addAttribute("user",op.get());
@@ -148,7 +148,7 @@ public class sessionController {
 		
 		Optional<SellerEntity> op = sellerRepo.findById(sellerId);
 		
-		if (op.isEmpty()) {
+		if (!op.isPresent()) {
 			// data not found
 		}
 		else {
@@ -180,7 +180,7 @@ public class sessionController {
 	public String sendOtp(String email, Model model) {
 		// email valid
 		Optional<UserEntity> op = userRepo.findByEmail(email);
-		if (op.isEmpty()) {
+		if (!op.isPresent()) {
 			// email invalid
 			model.addAttribute("error", "Email not found");
 			return "ForgetPassword";
@@ -204,7 +204,7 @@ public class sessionController {
 	@PostMapping("updatepassword")
 	public String updatePassword(String email, String password, String otp, Model model) {
 		Optional<UserEntity> op = userRepo.findByEmail(email);
-		if (op.isEmpty()) {
+		if (!op.isPresent()) {
 			model.addAttribute("error", "Invalid Data");
 			return "ChangePassword";
 		} else {

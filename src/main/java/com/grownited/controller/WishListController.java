@@ -75,7 +75,7 @@ public class WishListController {
 	@GetMapping("editwishlist")
 	public String editWishList(Integer wishListId,Model model) {
 		Optional<WishListEntity> op = wishListRepo.findById(wishListId);
-		if (op.isEmpty()) {
+		if (!op.isPresent()) {
 			return "redirect:/listwishlist";
 		} else {
 			model.addAttribute("wishList",op.get());

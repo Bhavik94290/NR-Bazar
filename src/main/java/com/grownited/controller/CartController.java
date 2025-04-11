@@ -100,7 +100,7 @@ public class CartController {
 	@GetMapping("editcart")
 	public String editCart(Integer cartId,Model model) {
 		Optional<CartEntity> op = cartReposotory.findById(cartId);
-		if (op.isEmpty()) {
+		if (!op.isPresent()) {
 			return "redirect:/listcart";
 		} else {
 			model.addAttribute("cart",op.get());
