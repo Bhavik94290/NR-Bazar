@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import com.grownited.entity.ProductEntity;
 import com.grownited.repository.ProductRepository;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 @Controller
 public class UserController {
@@ -24,4 +26,20 @@ public class UserController {
 				return"UserDashboard";
 			}
 	
+			@GetMapping("about")
+			public String About() {
+				return "About";
+			}
+			
+			@GetMapping("contact")
+			public String Contact() {
+				return "Contact";
+			}
+			
+			@GetMapping("blog")
+			public String Blog() {
+				return "blog";
+			}
+			
+			
 }

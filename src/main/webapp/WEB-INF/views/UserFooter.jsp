@@ -71,7 +71,9 @@
 					</h4>
 
 					<p class="stext-107 cl7 size-201">
-						Any questions? Let us know in store at 8th floor, 379 Hudson St, New York, NY 10018 or call us on (+1) 96 716 6879
+						Any questions? Let us know in store at 4th floor, 379 Kelavanidham Nikol,  india, ID 395010 or call us on (+91)9429093835
+						E-Mail:-bhaviknakarani693@gmail.com
+						
 					</p>
 
 					<div class="p-t-27">
@@ -111,7 +113,7 @@
 
 			<div class="p-t-40">
 				<div class="flex-c-m flex-w p-b-18">
-					<a href="#" class="m-all-1">
+					<!-- <a href="#" class="m-all-1">
 						<img src="images/icons/icon-pay-01.png" alt="ICON-PAY">
 					</a>
 
@@ -129,7 +131,7 @@
 
 					<a href="#" class="m-all-1">
 						<img src="images/icons/icon-pay-05.png" alt="ICON-PAY">
-					</a><br></br><br>
+					</a> --><br></br><br>
 					<div class="copyright">
 			                              © Copyright <strong><span>NR Bazaar</span></strong>. All Rights Reserved
              </div>

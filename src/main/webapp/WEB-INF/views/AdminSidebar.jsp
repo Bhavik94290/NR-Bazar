@@ -210,11 +210,11 @@
 			                <i class="bi bi-circle"></i><span>Customer Reports</span>
 			            </a>
 				        </li>
-			        <li>
+			        <!-- <li>
 			            <a href="salesreport">
 			                <i class="bi bi-circle"></i><span>Sales Reports</span>
 			            </a>
-			        </li>
+			        </li> -->
 			        
 			        <li>
 			            <a href="orderreport">
