@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -216,10 +217,7 @@
 						<div class="tab-pane fade show active" id="description" role="tabpanel">
 							<div class="how-pos2 p-lr-15-md">
 								<p class="stext-102 cl6">
-								Elevate your everyday style with this premium cotton t-shirt, crafted for comfort and durability.
-								Its modern fit and breathable fabric keep you cool and confident all day long.
-								Perfect for casual outings or layering under a jacket for a smart look.
-								Available in multiple colors and sizes to suit every personality.
+									Aenean sit amet gravida nisi. Nam fermentum est felis, quis feugiat nunc fringilla sit amet. Ut in blandit ipsum. Quisque luctus dui at ante aliquet, in hendrerit lectus interdum. Morbi elementum sapien rhoncus pretium maximus. Nulla lectus enim, cursus et elementum sed, sodales vitae eros. Ut ex quam, porta consequat interdum in, faucibus eu velit. Quisque rhoncus ex ac libero varius molestie. Aenean tempor sit amet orci nec iaculis. Cras sit amet nulla libero. Curabitur dignissim, nunc nec laoreet consequat, purus nunc porta lacus, vel efficitur tellus augue in ipsum. Cras in arcu sed metus rutrum iaculis. Nulla non tempor erat. Duis in egestas nunc.
 								</p>
 							</div>
 						</div>
@@ -462,6 +460,12 @@
 							
 							<!--  -->
 							<div class="p-t-33">
+							<form action="addtocart" method="get">
+							    <!-- Hidden input for Product ID -->
+							    <input type="hidden" name="productId" value="${product[0][0]}" />
+							
+							    <!-- Hidden input for User ID (not ideal; better to handle in backend via session) -->
+							    <input type="hidden" name="userId" value="${sessionScope.user.userId}" />
 								<div class="flex-w flex-r-m p-b-10">
 									<div class="size-203 flex-c-m respon6">
 										Size
@@ -513,12 +517,18 @@
 												<i class="fs-16 zmdi zmdi-plus"></i>
 											</div>
 										</div>
-
-										<button class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail">
+				
+										<!-- <a href="usercart?productId=${product[0][0]}" class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail" >
+                         					Add to cart
+                          				</a> -->
+										<a href="addtocart?productId=${product[0][0]}">
+										 <button type="submit" class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail">
 											Add to cart
-										</button>
+										</button> 
+										</a>
 									</div>
 								</div>	
+								</form>
 							</div>
 
 							<!--  -->

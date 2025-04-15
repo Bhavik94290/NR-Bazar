@@ -206,50 +206,71 @@
 
 						<!-- Reports -->
 						
-						<div class="card-body">
-							<h5 class="card-title">User Analysis <span>/ Year</span> </h5>
-						
-						
-							<canvas id="myChart" width="400" height="180"></canvas>
+						<div class="col-12">
+              <div class="card">
 
-					    <script>
-					        var ctx = document.getElementById('myChart').getContext('2d');
-					        var myChart = new Chart(ctx, {
-					            type: 'bar',
-					            data: {
-					                labels: ['january', 'February', 'March', 'April', 'May', 'June','July','August','September','October','November','December'],
-					                datasets: [{
-					                    label: 'User Data',
-					                    data: [5, 19, 3, 5, 2, 3],
-					                    backgroundColor: [
-					                        'rgba(255, 99, 132, 0.2)',
-					                        'rgba(54, 162, 235, 0.2)',
-					                        'rgba(255, 206, 86, 0.2)',
-					                        'rgba(75, 192, 192, 0.2)',
-					                        'rgba(153, 102, 255, 0.2)',
-					                        'rgba(255, 159, 64, 0.2)'
-					                    ],
-					                    borderColor: [
-					                        'rgba(255, 99, 132, 1)',
-					                        'rgba(54, 162, 235, 1)',
-					                        'rgba(255, 206, 86, 1)',
-					                        'rgba(75, 192, 192, 1)',
-					                        'rgba(153, 102, 255, 1)',
-					                        'rgba(255, 159, 64, 1)'
-					                    ],
-					                    borderWidth: 1
-					                }]
-					            },
-					            options: {
-					                scales: {
-					                    y: {
-					                        beginAtZero: true
-					                    }
-					                }
+                <div class="filter">
+                  <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                  <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                    <li class="dropdown-header text-start">
+                      <h6>Filter</h6>
+                    </li>
+
+                    <li><a class="dropdown-item" href="#">Today</a></li>
+                    <li><a class="dropdown-item" href="#">This Month</a></li>
+                    <li><a class="dropdown-item" href="#">This Year</a></li>
+                  </ul>
+                </div>
+
+                <div class="card-body">
+                  <h5 class="card-title">User Analysis <span>/ Year</span></h5>
+
+                  <!-- Bar Chart -->
+                   <canvas id="myChart" width="400" height="180"></canvas>
+
+                   <script>
+					      var ctx = document.getElementById('myChart').getContext('2d');
+					      var myChart = new Chart(ctx, {
+					        type: 'bar',
+					        data: {
+					          labels: ['January', 'February', 'March', 'April', 'May', 'June','July','August','September','October','November','December'],
+					          datasets: [{
+					            label: 'User Data',
+					            data: [${monthWiseUsers[0]}, ${monthWiseUsers[1]}, ${monthWiseUsers[2]}, ${monthWiseUsers[3]}, ${monthWiseUsers[4]}, ${monthWiseUsers[5]}, ${monthWiseUsers[6]}, ${monthWiseUsers[7]}, ${monthWiseUsers[8]}, ${monthWiseUsers[9]}, ${monthWiseUsers[10]}, ${monthWiseUsers[11]}],
+					            backgroundColor: [
+					              'rgba(255, 99, 132, 0.2)',
+					              'rgba(54, 162, 235, 0.2)',
+					              'rgba(255, 206, 86, 0.2)',
+					              'rgba(75, 192, 192, 0.2)',
+					              'rgba(153, 102, 255, 0.2)',
+					              'rgba(255, 159, 64, 0.2)'
+					            ],
+					            borderColor: [
+					              'rgba(255, 99, 132, 1)',
+					              'rgba(54, 162, 235, 1)',
+					              'rgba(255, 206, 86, 1)',
+					              'rgba(75, 192, 192, 1)',
+					              'rgba(153, 102, 255, 1)',
+					              'rgba(255, 159, 64, 1)'
+					            ],
+					            borderWidth: 1
+					          }]
+					        },
+					        options: {
+					          scales: {
+					            y: {
+					              beginAtZero: true
 					            }
-					        });
+					          }
+					        }
+					      });
 					    </script>
-						</div>
+                  <!-- End Bar Chart -->
+
+                </div>
+
+              </div>
+            </div>
 						
 						<!-- End Reports -->
 						

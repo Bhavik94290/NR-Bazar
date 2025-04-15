@@ -34,8 +34,7 @@ public class AdminController {
 		
 		Long totalUsers = repouserEntity.count();//total of users table 
 
-		Integer totalUser = repouserEntity.findByRole("USER").size();
-		Integer totalAdmin = repouserEntity.findByRole("ADMIN").size();
+		
 		
 		Long totalOrders = repositoryOrder.count();
 		Long totalProduct = repositoryproduct.count();
@@ -53,8 +52,10 @@ public class AdminController {
 		}
 		
 		model.addAttribute("totalOrders",totalOrders);
-		model.addAttribute("totalUser",totalUser);
+		model.addAttribute("totalUser",totalUsers);
 		model.addAttribute("thisMonthUserCount",thisMonthUserCount);
+		model.addAttribute("monthWiseUsers",monthWiseUsers);
+
 		model.addAttribute("totalProduct",totalProduct);
 		model.addAttribute("currentMonth", LocalDate.now().getMonth().name());
 		

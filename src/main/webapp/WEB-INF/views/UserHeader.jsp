@@ -18,13 +18,13 @@
 								<a href="userdashboard">Home</a>
 								
 							</li>
-
+<!-- 
 							<li>
-								<a href="product.html">Shop</a>
-							</li>
+								<a href="product">Shop</a>
+							</li> -->
 
 							<li class="label1" data-label1="hot">
-								<a href="shoping-cart.html">Features</a>
+								<a href="shopingcart">Features</a>
 							</li>
 
 							<li>
@@ -44,12 +44,12 @@
 					<!-- Icon header -->
 					<div class="wrap-icon-header flex-w flex-r-m h-full">							
 						<div class="flex-c-m h-full p-r-25 bor6">
-							<div class="icon-header-item cl0 hov-cl1 trans-04 p-lr-11 icon-header-noti js-show-cart" data-notify="2">
+							<div class="icon-header-item cl0 hov-cl1 trans-04 p-lr-11 icon-header-noti js-show-cart" data-notify="${totalWishlist}">
 								<i class="zmdi zmdi-favorite-outline"></i>
 							</div>
 							
-							<div class="icon-header-item cl0 hov-cl1 trans-04 p-lr-11 icon-header-noti js-show-cart" data-notify="2">
-								<i class="zmdi zmdi-shopping-cart"></i>
+							<div class="icon-header-item cl0 hov-cl1 trans-04 p-lr-11 icon-header-noti js-show-cart" data-notify="${totalCart }">
+								<a href="shopingcart">	<i class="zmdi zmdi-shopping-cart"></i></a>
 							</div>
 						</div>
 							

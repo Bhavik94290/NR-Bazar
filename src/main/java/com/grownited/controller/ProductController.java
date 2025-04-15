@@ -38,6 +38,8 @@ public class ProductController {
 	@Autowired
 	Cloudinary cloudinary;
 	
+
+	
 	@GetMapping("product")
 	public String product(Model model) {
 		
@@ -49,30 +51,41 @@ public class ProductController {
 		return"Product";
 	}
 	
+	@GetMapping("addproduct")
+	public String addProduct(Model model) {
+		
+		List<CategoryEntity> allCategory = categoryRepository.findAll();// all state
+		model.addAttribute("allCategory",allCategory);
+		
+		List<SubCategoryEntity> allSubCategory = subCategoryRepository.findAll();// all state
+		model.addAttribute("allSubCategory",allSubCategory);
+		return"AddProduct";
+	}
+	
 	@PostMapping("saveproduct")
-	public String saveproduct(ProductEntity productEntity,MultipartFile Image,MultipartFile Image2,MultipartFile Image3) {
-	    
-	    try {
-	        // Upload productPic1
-	        Map result1 = cloudinary.uploader().upload(Image.getBytes(), ObjectUtils.emptyMap());
-	        productEntity.setProductImageURL1(result1.get("url").toString());
+	public String saveProduct(ProductEntity entityProduct, MultipartFile Image,MultipartFile Image2,MultipartFile Image3) {
+		
+		  try {
+		        // Upload productPic1
+		        Map result1 = cloudinary.uploader().upload(Image.getBytes(), ObjectUtils.emptyMap());
+		        entityProduct.setProductImageURL1(result1.get("url").toString());
 
-	        // Upload productPic2
-	        Map result2 = cloudinary.uploader().upload(Image2.getBytes(), ObjectUtils.emptyMap());
-	        productEntity.setProductImageURL2(result2.get("url").toString());
+		        // Upload productPic2
+		        Map result2 = cloudinary.uploader().upload(Image2.getBytes(), ObjectUtils.emptyMap());
+		        entityProduct.setProductImageURL2(result2.get("url").toString());
 
-	        // Upload productPic3
-	        Map result3 = cloudinary.uploader().upload(Image3.getBytes(), ObjectUtils.emptyMap());
-	        productEntity.setProductImageURL3(result3.get("url").toString());
+		        // Upload productPic3
+		        Map result3 = cloudinary.uploader().upload(Image3.getBytes(), ObjectUtils.emptyMap());
+		        entityProduct.setProductImageURL3(result3.get("url").toString());
 
-	    } catch (IOException e) {
-	        e.printStackTrace();
-	    }
-		productEntity.setCreatedAt(LocalDate.now());
+		    } catch (IOException e) {
+		        e.printStackTrace();
+		    }
+		
+		entityProduct.setCreatedAt(LocalDate.now());
+		productRepo.save(entityProduct);
+		return"AddProduct";
 
-		productRepo.save(productEntity);
-
-	    return "redirect:/product";
 	}	
 	
 	@GetMapping("quickview")

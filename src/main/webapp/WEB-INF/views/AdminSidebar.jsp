@@ -114,7 +114,7 @@
 		            <i class="bi bi-chevron-down ms-auto"></i>
 		        </a>
 		        <ul id="product-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
-		            <li><a href="product"><i class="bi bi-circle"></i><span>Add Product</span></a></li>
+		            <li><a href="addproduct"><i class="bi bi-circle"></i><span>Add Product</span></a></li>
 		            <li><a href="listproduct"><i class="bi bi-circle"></i><span>List Products</span></a></li>
 		        </ul>
    			 </li>

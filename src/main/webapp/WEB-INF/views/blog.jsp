@@ -85,13 +85,13 @@
 								<a href="userdashboard">Home</a>
 								
 							</li>
-
+<!-- 
 							<li>
-								<a href="product.html">Shop</a>
+								<a href="product">Shop</a>
 							</li>
-
+ -->
 							<li class="label1" data-label1="hot">
-								<a href="shoping-cart.html">Features</a>
+								<a href="shopingcart">Features</a>
 							</li>
 
 							<li class="active-menu">

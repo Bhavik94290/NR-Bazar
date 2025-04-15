@@ -1,163 +1,232 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="utf-8">
-<meta content="width=device-width, initial-scale=1.0" name="viewport">
-
-<title>Add Product</title>
-
-<jsp:include page="AdminCss.jsp"></jsp:include>
-<script src="https://code.jquery.com/jquery-3.7.1.min.js"
-	integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
-	crossorigin="anonymous"></script>
-
+	<title>Home </title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="images/icons/favicon.png"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/linearicons-v1.0.0/icon-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/slick/slick.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/MagnificPopup/magnific-popup.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/perfect-scrollbar/perfect-scrollbar.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+<!--===============================================================================================-->
 </head>
-<body>
-	<jsp:include page="AdminHeader.jsp"></jsp:include>
+<body class="animsition">
 
-	<jsp:include page="AdminSidebar.jsp"></jsp:include>
-
-	<main id="main" class="main">
-		<div class="pagetitle">
-	      <h1>Add Product</h1>
-	      <nav>
-	        <ol class="breadcrumb">
-	          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-	          <li class="breadcrumb-item">Add</li>
-	          <li class="breadcrumb-item active">Product</li>
-	        </ol>
-	      </nav>
-	    </div>
-    
-	 <section class="section">
-		<div class="col-lg-6">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Add Product</h5>
-
-              <!-- Vertical Form -->
-              <form action="saveproduct" method="post" enctype="multipart/form-data" class="row g-3">
-                <div class="col-12">
-                  <label for="inputNanme4" class="form-label">Product Name</label>
-                  <input type="text" name="productName" class="form-control" id="inputNanme4">
-                </div>
-                
-                <div class="col-12">
-                  <label for="inputNanme4" class="form-label">Base Price</label>
-                  <input type="text" name="basePrice" class="form-control" id="inputNanme4">
-                </div>
-                
-                <div class="col-12">
-                  <label for="inputNanme4" class="form-label">Offere Price</label>
-                  <input type="text" name="offerPrice" class="form-control" id="inputNanme4">
-                </div>
-                
-                <div class="col-12">
-                  <label for="inputNanme4" class="form-label">Offere Percentage</label>
-                  <input type="text" name="offerePercentage" class="form-control" id="inputNanme4">
-                </div>
-                
-                <div class="col-12">
-                  <label for="inputNanme4" class="form-label">Product Detail</label>
-                  <input type="text" name="productDetail" class="form-control" id="inputNanme4">
-                </div>
-                
-                <div class="col-12">
-                  <label for="inputNanme4" class="form-label">Product Image1</label>
-                  <input type="file" name="Image" class="form-control" id="inputNanme4">
-                </div>
-                
-                <div class="col-12">
-                  <label for="inputNanme4" class="form-label">Product Image2</label>
-                  <input type="file" name="Image2" class="form-control" id="inputNanme4">
-                </div>
-                
-                <div class="col-12">
-                  <label for="inputNanme4" class="form-label">Product Image3</label>
-                  <input type="file" name="Image3" class="form-control" id="inputNanme4">
-                </div>
-                
-                <div class="col-12">
-                  <label for="inputNanme4" class="form-label">Quantity</label>
-                  <input type="text" name="quantity" class="form-control" id="inputNanme4">
-                </div>
-                
-                
-                
-                <div class="col-12">
-                  <label for="inputNanme4" class="form-label">Category</label>
-                  <select name="categoryId"id="category"  onchange="getSubCategory()" required/>
-					<option value="-1">Select Category</option>			
-						<c:forEach items="${allCategory}" var="c">
-							<option value="${c.categoryId}">${c.categoryName }</option>			
-						</c:forEach>
-				  </select>
-                </div>
-                
-                <div class="col-12">
-                  <label for="inputNanme4" class="form-label">Sub Category</label>
-                  <select name="subCategoryId" id="subCategory" required />
-					<option value="-1">Select Sub Category</option>			
-						<c:forEach items="${allSubCategory}" var="a">
-							<option value="${a.subCategoryId}">${a.subCategoryName }</option>			
-						</c:forEach>
-				  </select>
-                </div>
-                           
-                <div class="text-center">
-                  <button type="submit" class="btn btn-primary">Submit</button>
-                 <!-- <button type="reset" class="btn btn-secondary">Reset</button> --> 
-                </div>
-              </form><!-- Vertical Form -->
-
-            </div>
-          </div>
-          </div>
-          
-		</section>
-<script type="text/javascript">
-
-	function getSubCategory(){
-		console.log("category Change");
-		let categoryId = document.getElementById("category").value;
-		console.log(categoryId);	
-		//url -> json REST 
+	<!-- Header -->
+		<jsp:include page="UserHeader.jsp"></jsp:include>
+	
+	<!-- Sidebar -->
+		<jsp:include page="UserSidebar.jsp"></jsp:include>
 		
-		  $.get( "getallsubcategorybycategoryid/"+categoryId, function() {
+
+
+<!-- Product -->
+	<section class="bg0 p-t-23 p-b-130">
+			<div class="row isotope-grid">
+			<c:forEach items="${allProduct}" var="p">
+				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women">
+					<!-- Block2 -->
+					<div class="block2">
+						<div class="block2-pic hov-img0 label-new" data-label="New">
+							<img src="${p.productImageURL1}" alt="IMG-PRODUCT">
+
+							<a href="quickview?productId=${p.productId}" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal" 
+                      			data-productid="${p.productId}">
+                         		Quick View
+                          </a>
+						</div>
+
+						<div class="block2-txt flex-w flex-t p-t-14">
+							<div class="block2-txt-child1 flex-col-l ">
+								<a href="ProductList.jsp" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
+									${p.productName}
+								</a>
+
+								<span class="stext-105 cl3">
+                                    ${p.offerPrice}								
+                                </span>
+							</div>
+
+							<div class="block2-txt-child2 flex-r p-t-3">
+								<a href="addtowishlist/${p.productId}" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
+		                            <img class="icon-heart1 dis-block trans-04" src="images/icons/icon-heart-01.png" alt="ICON">
+		                            <img class="icon-heart2 dis-block trans-04 ab-t-l" src="images/icons/icon-heart-02.png" alt="ICON">
+		                       	</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				    </c:forEach>
+				    </div>
+				
+				
+			<!-- Pagination -->
+			<div class="flex-c-m flex-w w-full p-t-38">
+				<a href="#" class="flex-c-m how-pagination1 trans-04 m-all-7 active-pagination1">
+					1
+				</a>
+
+				<a href="#" class="flex-c-m how-pagination1 trans-04 m-all-7">
+					2
+				</a>
+			</div>
+		</div>
+	</section>
+	
+	
+	
+	<!-- Back to top -->
+	<div class="btn-back-to-top" id="myBtn">
+		<span class="symbol-btn-back-to-top">
+			<i class="zmdi zmdi-chevron-up"></i>
+		</span>
+	</div>
+
+	<!-- Modal1 Quick view -->
+	
+<!--===============================================================================================-->	
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/select2/select2.min.js"></script>
+	<script>
+		$(".js-select2").each(function(){
+			$(this).select2({
+				minimumResultsForSearch: 20,
+				dropdownParent: $(this).next('.dropDownSelect2')
+			});
+		})
+	</script>
+<!--===============================================================================================-->
+	<script src="vendor/daterangepicker/moment.min.js"></script>
+	<script src="vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/slick/slick.min.js"></script>
+	<script src="js/slick-custom.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/parallax100/parallax100.js"></script>
+	<script>
+        $('.parallax100').parallax100();
+	</script>
+<!--===============================================================================================-->
+	<script src="vendor/MagnificPopup/jquery.magnific-popup.min.js"></script>
+	<script>
+		$('.gallery-lb').each(function() { // the containers for all your galleries
+			$(this).magnificPopup({
+		        delegate: 'a', // the selector for gallery item
+		        type: 'image',
+		        gallery: {
+		        	enabled:true
+		        },
+		        mainClass: 'mfp-fade'
+		    });
+		});
+	</script>
+<!--===============================================================================================-->
+	<script src="vendor/isotope/isotope.pkgd.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/sweetalert/sweetalert.min.js"></script>
+	<script>
+		$('.js-addwish-b2').on('click', function(e){
+			e.preventDefault();
+		});
+
+		$('.js-addwish-b2').each(function(){
+			var nameProduct = $(this).parent().parent().find('.js-name-b2').html();
+			//var productId =  $(this).parent().parent().find('.myProduct').attr("")
+			$(this).on('click', function(){
+				swal(nameProduct, "is Added to wishlist !", "success");
+
+				$(this).addClass('js-addedwish-b2');
+			//	$(this).off('click');
+			
+				 $.ajax({
+				        url: $(this).attr('href'),
+				        success: function(response) {
+				        	setTimeout(function(){
+				        		window.location.reload();
+				        	},3000);
+				        }
+				    });
+					   
+			});
+		});
+
+		$('.js-addwish-detail').each(function(){
+			var nameProduct = $(this).parent().parent().parent().find('.js-name-detail').html();
+
+		
+			
+			$(this).on('click', function(){
+ 				swal(nameProduct, "is added to Wishlist !", "success");
+
+				$(this).addClass('js-addedwish-detail');
+				//$(this).off('click');
+			});
+		});
+
+		/---------------------------------------------/
+
+		$('.js-addcart-detail').each(function(){
+			var nameProduct = $(this).parent().parent().parent().parent().find('.js-name-detail').html();
+			$(this).on('click', function(){
+				swal(nameProduct, "is added to cart !", "success");
+			});
+		});
+	
+	</script>
+<!--===============================================================================================-->
+	<script src="vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+	<script>
+		$('.js-pscroll').each(function(){
+			$(this).css('position','relative');
+			$(this).css('overflow','hidden');
+			var ps = new PerfectScrollbar(this, {
+				wheelSpeed: 1,
+				scrollingThreshold: 1000,
+				wheelPropagation: false,
+			});
+
+			$(window).on('resize', function(){
+				ps.update();
 			})
-			  .done(function(data) {
-			    console.log(data);
-			    //fill the subcategory 
-			    $('#subCategory').empty().append('<option selected="selected" value="-1">Select SubCategory</option>')
-			    
-			    for (var i = 0; i < data.length; i++) {
-      			  $('#subCategory').append('<option value="' + data[i].subCategoryId + '">' + data[i].subCategoryName + '</option>');
-   				 }
-			    
-			  })
-			  .fail(function() {
-			    alert( "error" );
-			  })
-			  
-		
-	}
+		});
+	</script>
+<!--===============================================================================================-->
+	
 
-
-</script> 
-	<jsp:include page="AdminFooter.jsp"></jsp:include>
-
-	<jsp:include page="AdminJs.jsp"></jsp:include>
 </body>
 </html>
-
-
-
-
-
-
-
-
-

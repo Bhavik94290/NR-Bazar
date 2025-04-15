@@ -1,3 +1,4 @@
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,12 +33,14 @@
 </head>
 <body class="animsition">
 	
+	<!-- Header -->
 	<jsp:include page="UserHeader.jsp"></jsp:include>
 	
 	<!-- Sidebar -->
 		<jsp:include page="UserSidebar.jsp"></jsp:include>
+		
 	<!-- Cart -->
-	<c:forEach var="p" items="${product}">
+	
 	<div class="wrap-header-cart js-panel-cart">
 		<div class="s-full js-hide-cart"></div>
 
@@ -56,16 +59,16 @@
 				<ul class="header-cart-wrapitem w-full">
 					<li class="header-cart-item flex-w flex-t m-b-12">
 						<div class="header-cart-item-img">
-							<img src="${p[2]}" alt="IMG">
+							<img src="${p[6]}" alt="IMG">
 						</div>
 
 						<div class="header-cart-item-txt p-t-8">
 							<a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
-								${p[0]}
+								${p[4]}
 							</a>
 
 							<span class="header-cart-item-info">
-								${p[1]}
+								${p[5]}
 							</span>
 						</div>
 					</li>
@@ -82,7 +85,7 @@
 							View Cart
 						</a>
 
-						<a href="#" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-b-10">
+						<a href="shoping-cart.html" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-b-10">
 							Check Out
 						</a>
 					</div>
@@ -90,10 +93,11 @@
 			</div>
 		</div>
 	</div>
-</c:forEach>
+
+		
 
 	<!-- Shoping Cart -->
-	<form class="bg0 p-t-75 p-b-85" action="checkout" method="post">
+	<form class="bg0 p-t-75 p-b-85" >
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-10 col-xl-7 m-lr-auto m-b-50">
@@ -108,14 +112,15 @@
 									<th class="column-5">Total</th>
 								</tr>
 
+						<c:forEach items="${products}" var="p">
 								<tr class="table_row">
 									<td class="column-1">
 										<div class="how-itemcart1">
-											<img src="${product[0][2]}" alt="IMG">
+											<img src="${p[6]}" alt="IMG">
 										</div>
 									</td>
-									<td class="column-2"></td>
-									<td class="column-3">${product[0][0]}</td>
+									<td class="column-2">${p[4]}</td>
+									<td class="column-3">${p[5]}</td>
 									<td class="column-4">
 										<div class="wrap-num-product flex-w m-l-auto m-r-0">
 											<div class="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m">
@@ -129,8 +134,9 @@
 											</div>
 										</div>
 									</td>
-									<td class="column-5">${product[0][1]}</td>
+									<td class="column-5">Total</td>
 								</tr>
+								</c:forEach>
 							</table>
 						</div>
 
@@ -190,9 +196,8 @@
 									<div class="rs1-select2 rs2-select2 bor8 bg0 m-b-12 m-t-9">
 										<select class="js-select2" name="time">
 											<option>Select a country...</option>
-											<option>India</option>
-											<option>UK</option>
 											<option>USA</option>
+											<option>UK</option>
 										</select>
 										<div class="dropDownSelect2"></div>
 									</div>
@@ -228,12 +233,10 @@
 								</span>
 							</div>
 						</div>
-
-						<!-- <button class="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer" type="submit">
-							
-						</button> -->
+<a href="checkout" class="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer">
 						
-						<a class="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer" href="checkout">Proceed to Checkout</a>
+							Proceed to Checkout
+						</a>
 					</div>
 				</div>
 			</div>
@@ -242,8 +245,7 @@
 		
 	
 		
-
-	<!-- Footer -->
+<!-- Footer -->
 	<jsp:include page="UserFooter.jsp"></jsp:include>
 
 
