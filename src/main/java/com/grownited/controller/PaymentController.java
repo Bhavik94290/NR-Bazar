@@ -45,7 +45,7 @@ public class PaymentController {
 		// get all items from cart
 		List<Object[]> carts = cartRepository.getAllCartItemByUserId(user.getUserId());
 		
-		Integer paymentId = paymentService.chargeCreditCard("3JSL6X9vgN", "622y3D73uDCKm25E", 500.0 , ccNum,expDate, user.getEmail(), user.getUserId());
+		Integer paymentId = paymentService.chargeCreditCard("3JSL6X9vgN", "622y3D73uDCKm25E", 58401.0 , ccNum,expDate, user.getEmail(), user.getUserId());
       
 		String last4 = ccNum.substring(ccNum.length() - 4);
 		 mailservice.sendPaymentStatusMail(user.getEmail(), user.getFirstName(), amount, last4);

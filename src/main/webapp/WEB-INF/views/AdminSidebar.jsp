@@ -36,28 +36,8 @@
 
 
 
-		<li class="nav-item">
-	        <a class="nav-link collapsed" data-bs-target="#areas-nav" data-bs-toggle="collapse" href="#">
-	            <i class="bi bi-house"></i><span>Areas</span>
-	            <i class="bi bi-chevron-down ms-auto"></i>
-	        </a>
-	        <ul id="areas-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
-	            <li><a href="area"><i class="bi bi-circle"></i><span>Add Area</span></a></li>
-	            <li><a href="listarea"><i class="bi bi-circle"></i><span>List Area</span></a></li>
-	        </ul>
-    		</li>
-			
-			 <!--Catr menu-->
-			<li class="nav-item">
-		        <a class="nav-link collapsed" data-bs-target="#cart-nav" data-bs-toggle="collapse" href="#">
-		            <i class="bi bi-cart"></i><span>Cart</span>
-		            <i class="bi bi-chevron-down ms-auto"></i>
-		        </a>
-		        <ul id="cart-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
-		            <li><a href="cart"><i class="bi bi-circle"></i><span>Add Cart</span></a></li>
-		            <li><a href="listcart"><i class="bi bi-circle"></i><span>List Cart</span></a></li>
-		        </ul>
-    		</li>
+		
+			 
 			
 			 <!--Category menu-->
 			<li class="nav-item">
@@ -150,7 +130,7 @@
 		            <i class="bi bi-chevron-down ms-auto"></i>
 		        </a>
 		        <ul id="wishlist-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
-		            <li><a href="wishlist"><i class="bi bi-circle"></i><span>Add to WishList</span></a></li>
+		            <!-- <li><a href="wishlist"><i class="bi bi-circle"></i><span>Add to WishList</span></a></li> -->
 		            <li><a href="listwishlist"><i class="bi bi-circle"></i><span>List WishList</span></a></li>
 		        </ul>
 		    </li>

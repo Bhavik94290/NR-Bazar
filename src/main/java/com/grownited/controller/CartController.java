@@ -14,6 +14,7 @@ import com.grownited.entity.UserEntity;
 import com.grownited.repository.CartRepository;
 import com.grownited.repository.ProductRepository;
 import com.grownited.repository.UserRepository;
+import com.grownited.repository.WishListRepository;
 
 import jakarta.servlet.http.HttpSession;
 
@@ -28,6 +29,9 @@ public class CartController {
 	
 	@Autowired
 	UserRepository repoSession;
+	
+	@Autowired
+	WishListRepository repositoryWishlist;
 	
 	//Add to cart 6/april
 	@GetMapping("addtocart")
@@ -52,16 +56,21 @@ public class CartController {
 	    Integer userId = user.getUserId(); 
 	    List<Object[]> products = cartReposotory.getAllCartItemByUserId(userId);
 	    
-	    //System.out.println(products.get(0));
-		/*
-		 * double total = 0; for (Object[] row : products) { double price =
-		 * Double.parseDouble(row[1].toString()); // assuming price is at index 1 int
-		 * quantity = Integer.parseInt(row[3].toString()); // assuming quantity is at
-		 * index 3 total += price * quantity; } model.addAttribute("total", total);
-		 */
+	    double total = 0;
+	    for (Object[] row : products) {
+	        double price = Double.parseDouble(row[1].toString());
+	        int quantity = Integer.parseInt(row[3].toString()); // total_quantity
+	        total += price * quantity;
+	    }
+	    
+	    Integer totalWishlist  = repositoryWishlist.findByUserId(user.getUserId()).size();
+		model.addAttribute("totalWishlist",totalWishlist);
+		
+		Integer totalCart = cartReposotory.findByUserId(user.getUserId()).size();
+		model.addAttribute("totalCart", totalCart);	    
 
 	    model.addAttribute("products", products);
-	    
+	    model.addAttribute("total", total);
 
 	    return "ShopingCart";
 	}

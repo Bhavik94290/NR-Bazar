@@ -46,18 +46,67 @@ public class UserController {
 	}
 	
 	@GetMapping("about")
-	public String About() {
+	public String About(Model model,HttpSession session) {
+		
+		UserEntity user  = (UserEntity)session.getAttribute("user");
+		Integer totalWishlist  = repositoryWishlist.findByUserId(user.getUserId()).size();
+		model.addAttribute("totalWishlist",totalWishlist);
+		
+		Integer totalCart = repositoryCart.findByUserId(user.getUserId()).size();
+		model.addAttribute("totalCart", totalCart);
+		
 		return "About";
 	}
 	
 	@GetMapping("contact")
-	public String Contact() {
+	public String Contact(Model model,HttpSession session) {
+		
+		UserEntity user  = (UserEntity)session.getAttribute("user");
+		Integer totalWishlist  = repositoryWishlist.findByUserId(user.getUserId()).size();
+		model.addAttribute("totalWishlist",totalWishlist);
+		
+		Integer totalCart = repositoryCart.findByUserId(user.getUserId()).size();
+		model.addAttribute("totalCart", totalCart);
+		
 		return "Contact";
 	}
 	
 	@GetMapping("blog")
-	public String Blog() {
+	public String Blog(Model model,HttpSession session) {
+		
+		UserEntity user  = (UserEntity)session.getAttribute("user");
+		Integer totalWishlist  = repositoryWishlist.findByUserId(user.getUserId()).size();
+		model.addAttribute("totalWishlist",totalWishlist);
+		
+		Integer totalCart = repositoryCart.findByUserId(user.getUserId()).size();
+		model.addAttribute("totalCart", totalCart);
+		
 		return "blog";
 	}
+	
+	@GetMapping("wishlist")
+	public String wishlist(Integer productId, Model model,HttpSession session) {
+		UserEntity user = (UserEntity) session.getAttribute("user");
+	    Integer userId = user.getUserId(); 
+		
+		
+		/*
+		 * List<ProductEntity> allProduct = productRepo.findAll();// all state
+		 * model.addAttribute("allProduct",allProduct); List<Object[]> op =
+		 * productRepo.getByProductId(productId);
+		 */
+		
+		List<ProductEntity> wishlistProducts = repositoryproduct.findWishlistProductsByUserId(userId); // You need this method
+	    model.addAttribute("wishlistProducts", wishlistProducts);
+		
+		Integer totalWishlist  = repositoryWishlist.findByUserId(user.getUserId()).size();
+		model.addAttribute("totalWishlist",totalWishlist);
+		
+		Integer totalCart = repositoryCart.findByUserId(user.getUserId()).size();
+		model.addAttribute("totalCart", totalCart);
+		
+	    return "WishList";  // Refers to quickview.jsp or a Thymeleaf template
+	}
+
 	
 }

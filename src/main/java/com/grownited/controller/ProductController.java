@@ -19,9 +19,14 @@ import com.grownited.entity.CartEntity;
 import com.grownited.entity.CategoryEntity;
 import com.grownited.entity.ProductEntity;
 import com.grownited.entity.SubCategoryEntity;
+import com.grownited.entity.UserEntity;
+import com.grownited.repository.CartRepository;
 import com.grownited.repository.CategoryRepository;
 import com.grownited.repository.ProductRepository;
 import com.grownited.repository.SubCategoryRepository;
+import com.grownited.repository.WishListRepository;
+
+import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class ProductController {
@@ -34,6 +39,12 @@ public class ProductController {
 	
 	@Autowired
 	ProductRepository productRepo;
+	
+	@Autowired
+	WishListRepository repositoryWishlist;
+	
+	@Autowired
+	CartRepository repositoryCart;
 	
 	@Autowired
 	Cloudinary cloudinary;
@@ -84,14 +95,21 @@ public class ProductController {
 		
 		entityProduct.setCreatedAt(LocalDate.now());
 		productRepo.save(entityProduct);
-		return"AddProduct";
+		return "redirect:/addproduct";
 
 	}	
 	
 	@GetMapping("quickview")
-	public String quickView(Integer productId, Model model) {
+	public String quickView(Integer productId, Model model,HttpSession session) {
 	    List<Object[]> product = productRepo.getByProductId(productId);
 	    model.addAttribute("product", product);
+	    
+	    UserEntity user  = (UserEntity)session.getAttribute("user");
+		Integer totalWishlist  = repositoryWishlist.findByUserId(user.getUserId()).size();
+		model.addAttribute("totalWishlist",totalWishlist);
+		
+		Integer totalCart = repositoryCart.findByUserId(user.getUserId()).size();
+		model.addAttribute("totalCart", totalCart);
 	    return "QuickView";  // Refers to quickview.jsp or a Thymeleaf template
 	}
 

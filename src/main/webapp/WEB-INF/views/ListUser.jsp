@@ -92,7 +92,7 @@
 														<td>${u.email }</td>
 														<td>${u.contactNum }</td>
 														<td>${u.gender }</td>
-														<td><a href="viewuser?userId=${u.userId}">View</a> | <a href="deleteuser?userId=${u.userId}">Delete</a> |<a href="#">Edit</a></td>
+														<td><a href="viewuser?userId=${u.userId}">View</a> | <a href="deleteuser?userId=${u.userId}">Delete</a> </td>
 													</tr>
 										            </c:forEach>  
 										         </tbody>

@@ -44,8 +44,10 @@
 					<!-- Icon header -->
 					<div class="wrap-icon-header flex-w flex-r-m h-full">							
 						<div class="flex-c-m h-full p-r-25 bor6">
-							<div class="icon-header-item cl0 hov-cl1 trans-04 p-lr-11 icon-header-noti js-show-cart" data-notify="${totalWishlist}">
-								<i class="zmdi zmdi-favorite-outline"></i>
+							<div class="icon-header-item cl0 hov-cl1 trans-04 p-lr-11 ">
+								 <a href="wishlist" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 icon-header-noti" data-notify="${totalWishlist}">
+					     <i class="zmdi zmdi-favorite-outline"></i>
+				      </a>
 							</div>
 							
 							<div class="icon-header-item cl0 hov-cl1 trans-04 p-lr-11 icon-header-noti js-show-cart" data-notify="${totalCart }">
